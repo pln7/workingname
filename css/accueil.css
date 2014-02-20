@@ -3,6 +3,10 @@ body {
   padding-bottom: 40px;
 }
 
+.navbar{
+	text-align: center;
+}
+
 .form-signin {
   max-width: 450px;
   padding: 19px 29px 29px;
@@ -21,12 +25,4 @@ body {
 .form-signin .form-signin-heading,
 .form-signin .checkbox {
   margin-bottom: 10px;
-}
-
-.form-signin input[type="text"],
-.form-signin input[type="password"] {
-  font-size: 16px;
-  height: auto;
-  margin-bottom: 15px;
-  padding: 7px 9px;
 }
