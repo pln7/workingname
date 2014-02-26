@@ -1,0 +1,139 @@
+<html lang="fr"><head>
+    <meta charset="utf-8">
+    <title> Tableau de service </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le styles -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/ts.css" type="text/css" rel="stylesheet">
+    </style>
+    <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!--
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
+      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
+                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
+                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
+    -->
+
+  <style type="text/css"></style><style type="text/css"></style><script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script></head>
+
+  <body>
+
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-inner">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="brand" href="#">Pégase Web</a>
+          <ul class="nav navbar-nav">
+            <li><a href="accueil.html">Accueil</a></li>
+            <li><a href="#">Données Personnelles</a></li>
+            <li class="active"><a href="#">Tableau de service</a></li>
+          </ul>
+          <ul class="nav pull-right">
+            <li><a href="portail.html">Déconnexion</a></li>
+                    </ul>
+        </div>
+      </div>
+    </div>
+
+<div class="container" style="margin-top:35px">
+  
+  <!-- Semaine précédente/suivante -->    
+  <button type="button" class="btn btn-default btn-lg">
+      <i class="icon-chevron-left"></i>  Semaine précedente
+  </button>
+  <button type="button" class="btn btn-default btn-lg">
+      Semaine suivante <i class="icon-chevron-right"></i> 
+  </button>
+
+  <!-- Toolbar du tableau -->
+  <div class="row"> 
+    <div class="offset2">
+      <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg">Couper</button> 
+          <button type="button" class="btn btn-default btn-lg">Copier</button> 
+          <button type="button" class="btn btn-default btn-lg">Coller</button> 
+          <button type="button" class="btn btn-default btn-lg">Modifier</button> 
+          <button type="button" class="btn btn-default btn-lg">Supprimer</button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg">Ajouter absence</button> 
+          <button type="button" class="btn btn-default btn-lg">Ajouter vacation</button> 
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg">Informations</button>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-lg">Aide</button> 
+        </div>
+      </div>
+    </div>
+  
+    
+  <div class="row">
+    <!-- Gabarits -->  
+    <div class="span2">
+        <fieldset>
+          <h3> Gabarits </h3>
+          <br/><br/>
+          <br/><br/>
+          <div class="clearfix">
+            <label> <strong>Absences :</strong></label>
+            <div class="input">
+              <select name="gabarits_absences">
+                <option value="1">gabarit_absence1</option>
+                <option value="2">gabarit_absence2</option>
+                <option value="3">gabarit_absence3</option>
+                <option value="4">gabarit_absence4</option>
+              </select> 
+            </div>
+          </div> 
+          <br/> <br/>
+          <br/> <br/>
+          <br/> <br/>
+          <div class="clearfix">
+            <label> <strong>Vacations :</strong> </label>
+            <div class="input">
+              <select name="gabarits_vacations">
+                <option value="1">gabarit_vacation1</option>
+                <option value="2">gabarit_vacation2</option>
+                <option value="3">gabarit_vacation3</option>
+                <option value="4">gabarit_vacation4</option>
+              </select> 
+            </div>
+          </div>
+        </fieldset>
+    </div>
+    
+    <!-- Tableau -->
+    <div class="span10">
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bootstrap/js/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap-transition.js"></script>
+    
+</body></html>
