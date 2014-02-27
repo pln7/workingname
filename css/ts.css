@@ -4,6 +4,7 @@ body {
 }
 
 fieldset {
+  margin-top:10px;
   height: 600px;
   width:  200px;
   padding: 19px 29px 29px;
@@ -19,7 +20,27 @@ fieldset {
 table {
   margin-left : 15px;
   margin-top:  10px;
+    border: 1px solid #E8E8E8;
+  -webkit-border-radius: 5px;
+     -moz-border-radius: 5px;
+          border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+     -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+          box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
+
+td { 
+  width:113px;
+}
+
+.span91 {  
+    height: 500px !important;
+    overflow: scroll;
+    display:block;
+    margin-top:-20px;
+    width:900px !important;
+
+}​
 
 .navbar{
 	text-align: center;
