@@ -37,7 +37,7 @@ function tsCtrl($scope) {
 	                 },
 	                 
 	                 {
-	                	 name : 'jaques',
+	                	 name : 'jacques',
 	                	 ts : [
 	                	       {
 	                	    	   matin : 'abs',
@@ -64,7 +64,9 @@ function tsCtrl($scope) {
 	                 ];	
 	
 	$scope.click = function(toPrint) {
-		alert(toPrint);
+		window.open('form_ts.html','_blank');
+		return false;
+		// alert(toPrint);
 	}
 }
 
