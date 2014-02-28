@@ -1,74 +1,41 @@
-/*
- * page javascript gérant le tableau de service dynamique. 
- * 
- */
+// TODO : ameliorer fonction semaine
+function semaine(date) {
 
-
-
-/*
- * controleur angular du tableau de service
- */
-function tsCtrl($scope) {
-	$scope.agents = [ // liste des agents TODO : récupérer à partir du JSON
-	                 {
-	                	 name : 'pierre', // matricule TODO : récupérer à partir du JSON
-	                	 ts : [
-	                	       {
-	                	    	   matin : 'abs',
-	                	    	   aprem : 'abs',
-	                	       },
-	                	       {
-	                	    	   matin : 'null',
-	                	    	   aprem : 'null',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'abs',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'vac',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'abs',
-	                	       }
-	                	       ]
-	                 },
-	                 
-	                 {
-	                	 name : 'jacques',
-	                	 ts : [
-	                	       {
-	                	    	   matin : 'abs',
-	                	    	   aprem : 'abs',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'abs',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'abs',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'vac',
-	                	       },
-	                	       {
-	                	    	   matin : 'vac',
-	                	    	   aprem : 'abs',
-	                	       }
-	                	       ]
-	                 }
-	                 ];	
+	var moisAnnee = ((date.getMonth()+1)+"/"+date.getFullYear());
 	
-	$scope.click = function(toPrint) {
-		window.open('form_ts.html','_blank');
-		return false;
-		// alert(toPrint);
+	
+	document.write("Lundi ");
+	// Lundi
+	if (date.getDay()==1) {
+	
+		document.write(
+					   date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+					   )
+	
 	}
+
+	else if (date.getDay()==2) {
+		document.write(
+					   (date.getDate()-1)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+					   )
+	}
+
+	else if (date.getDay()==3) {
+		document.write(
+					   (date.getDate()-2)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+					   )
+	}
+
+	else if (date.getDay()==4) {
+		document.write(
+					   (date.getDate()-3)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+					   )
+	}
+
+	else if (date.getDay()==5) {
+		document.write(
+					   (date.getDate()-4)+"/"+(date.getMonth()+1)+"/"+date.getFullYear()
+					   )
+	}
+
 }
-
-
-
