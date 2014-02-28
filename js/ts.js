@@ -39,3 +39,14 @@ function semaine(date) {
 	}
 
 }
+
+// Retourne la numéro de la semaine courante
+function getWeekNumber() {
+	var d = new Date();
+	var DoW = d.getDay();
+	d.setDate(d.getDate() - (DoW + 6) % 7 + 3); // Nearest Thu
+	var ms = d.valueOf(); // GMT
+	d.setMonth(0);
+	d.setDate(4); // Thu in Week 1
+	return Math.round((ms - d.valueOf()) / (7 * 864e5)) + 1;
+}
