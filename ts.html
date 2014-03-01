@@ -145,7 +145,7 @@
 					<table class="table zebra-striped">
 						<thead>
 							<tr>
-								<th>Agent</th>
+								<th class="alignLeft">Agent</th>
 								<th>Lundi</th>
 								<th>Mardi</th>
 								<th>Mercredi</th>
@@ -161,7 +161,7 @@
 						<table class="table zebra-striped">
 							<tbody>
 								<tr ng-repeat="agent in agents">
-									<td>{{agent.name}}</td>
+									<td class="alignLeft">{{agent.name}}</td>
 									<td ng-repeat="jour in agent.ts">
 									  	<div class="btn-group"> <!-- 2 boutons - matin et après midi - cliquables TODO : les fonctions onclick -->
 									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-click="click(jour.matin)"></button> 
@@ -186,5 +186,6 @@
 		<script src="bootstrap/js/bootstrap.js"></script>
 		<script src="lib/angular.js"></script>
 		<script src="js/ts_angular.js"></script>
+		<script src="js/actions.js"></script>
 </body>
 </html>

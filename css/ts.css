@@ -1,4 +1,4 @@
-﻿body {
+body {
   padding-top: 40px;
   padding-bottom: 40px;
 }
@@ -29,18 +29,27 @@ table {
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
 
-td { 
-  width:113px;
+td, th { 
+  width:110px !important;
+  text-align : center !important;
 }
 
 .span91 {  
     height: 500px !important;
-    overflow: scroll;
+    overflow-y:scroll;
+	overflow-x:hidden;
     display:block;
     margin-top:-20px;
     width:900px !important;
 
-}â€‹
+}
+
+.alignLeft {
+	text-align : left !important;
+}
+
+
+​
 
 .navbar{
 	text-align: center;
