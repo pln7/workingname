@@ -18,7 +18,6 @@
 </head>
 
 <body ng-app>
-
 	<!-- Barre de navigation -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -130,10 +129,7 @@
 							</label>
 							<div class="input">
 								<select name="gabarits_vacations">
-									<option value="1">gabarit_vacation1</option>
-									<option value="2">gabarit_vacation2</option>
-									<option value="3">gabarit_vacation3</option>
-									<option value="4">gabarit_vacation4</option>
+									<option value="1" ng-repeat="gabarit in listeGabVacation">{{gabarit}}</option>
 								</select>
 							</div>
 						</div>
@@ -187,5 +183,7 @@
 		<script src="lib/angular.js"></script>
 		<script src="js/ts_angular.js"></script>
 		<script src="js/actions.js"></script>
+		<script src="js/json2Object.js"></script>
+		<script src="js/getObjectProperties.js"></script>
 </body>
 </html>
