@@ -55,10 +55,89 @@
 		</div>
 	
 		<div id="main-container">
-			<h2>Vos statistiques personnelles</h2>
-			
-			<p>blobloblo</p>
-			-code javascript
+
+			<div class="alert alert-info" style= "margin-bottom: 50px;">
+				<h2 style="text-align: center;">Vos statistiques personnelles</h2>
+			</div>
+
+			<div class="row-fluid">
+
+				<div class="span8 offset2">
+					<div class="alert alert-info">
+						<strong>Etape 1 :</strong> Sélectionner la période à afficher
+					</div>
+					
+					<div class="well">
+						
+						
+						<fieldset>
+							<legend>Sélectionner manuellement la période :</legend>
+								<div class="clearfix"><labe>date début</label>
+									<div class="input">
+										<input type="text" id="dateDebut" placeholder="jj/mm/aaaa"/>
+									</div>
+								</div>
+								<div class="clearfix"><labe>date fin</label>
+									<div class="input">
+										<input type="text" id="dateFin" placeholder="jj/mm/aaaa"/>
+									</div>
+								</div>
+						</fieldset>
+
+						<fieldset>
+							<legend>Ou choisissez une période prédéfinie :</legend>
+							<div class="input">
+					            <select name="periode">
+					              <option value="1">Mois en cours</option>
+					              <option value="2">Mois flottant</option>
+					              <option value="3">Mois précédent</option>
+					              <option value="4">Trimestre en cours</option>
+					              <option value="5">Trimestre flottant</option>
+					              <option value="6">Trimestre précédent</option>
+					              <option value="7">Semestre en cours</option>
+					              <option value="8">Semestre flottant</option>
+					              <option value="9">Semestre précédent</option>
+					              <option value="10">Année en cours</option>
+					              <option value="11">Année flottante</option>
+					              <option value="12">Année précédente	</option>
+					            </select> 
+					        </div>
+						</fieldset>
+
+				       
+				        <fieldset>
+				        	<legend>  </legend>
+				          	<input type="checkbox"> Cumuler les compensations au temps de travail effectif
+				        </fieldset>
+						        
+						
+						</form>
+
+					    <fieldset>
+					    	<legend> </legend>
+					    	<button type="submit" class="btn btn-info">Passer à l'étape 2</button>
+					    </fieldset>
+				
+					</div>
+				</div>
+			</div>
+
+
+			<div class="row-fluid">
+
+				<div class="span8 offset2">
+					<div class="alert alert-info">
+						<strong>Etape 2 :</strong> Sélectionner votre gabarit
+					</div>
+					
+					<div class="well">
+						
+						
+						
+					</div>
+				</div>
+			</div>
+
 		</div>
 
 	</div>
