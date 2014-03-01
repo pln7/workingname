@@ -178,7 +178,7 @@ function getAbsencesSemaine(listeAbsences, _dateLundi) {
 	dateVendredi = dateLundi;
 	dateVendredi.setHours(23, 59, 0, 0);
 	var toAdd = 86400000*4; // 4 jours en milisecondes
-	dateVendredi.setTime(d.getTime()+toAdd);
+	dateVendredi.setTime(dateVendredi.getTime()+toAdd);
 
 	
 	var tableauRetour = new Array();
@@ -189,7 +189,7 @@ function getAbsencesSemaine(listeAbsences, _dateLundi) {
 		temp = listeAbsences[prop];
 		dateDeb = Date.parse(temp["dateDebut"].substring(0,4)+"/"+temp["dateDebut"].substring(4,6)+"/"+temp["dateDebut"].substring(6,8));
 		dateFin = Date.parse(temp["dateFin"].substring(0,4)+"/"+temp["dateFin"].substring(4,6)+"/"+temp["dateFin"].substring(6,8));
-		if ((dateDeb<dateVendredi.getTime()) || dateFin>dateLundi.getTime()) {
+		if ((dateDeb<dateVendredi.getTime()) && dateFin>dateLundi.getTime()) {
 			tableauRetour.push(temp);
 		}
 	}
@@ -231,7 +231,8 @@ function getAbsencesByMatricule(listeAbsences, matricule, correspondances) {
  * parametre : un objet de type Date
  * retour : un objet de type date à la date du lundi précédent
  */
-function getMonday(d) {
+function getMonday(_d) {
+	var d = new Date();
 	var numJour = d.getDay();//numéro du jour - Dimanche = 0, Lundi 1,...
 	//o ndécale les numéros pour que lundi = 0, mardi = 1,...
 	if (numJour == 0) { 
