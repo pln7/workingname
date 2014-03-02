@@ -13,15 +13,22 @@
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <style type="text/css"></style>
 <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+<script src="js/form_ts.js"></script>
 
 </head>
 
 <body ng-app>
 
+<script>	
+	ecrireJour();
+</script>
+
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="brand" href="#">Edition de la demi-journée</a>
+			<a class="brand" href="#">Edition de la demi-journée
+				<div id="jour"></div>
+			</a>
 		</div>
 	</div>
 </div>

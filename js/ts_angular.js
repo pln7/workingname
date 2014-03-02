@@ -21,48 +21,58 @@ function tsCtrl($scope) {
 	                	  name : 'pierre', // matricule TODO : récupérer à partir du JSON
 	                	  ts : [
 	                	        {
+	                	        	jourSem : 'Lundi', 
 	                	        	matin : 'abs',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Mardi',
 	                	        	matin : 'null',
-	                	        	aprem : 'null',
+	                	        	aprem : 'null'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Mercredi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Jeudi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'vac',
+	                	        	aprem : 'vac'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Vendredi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        }
 	                	        ]
 	                  },
 
 	                  {
-	                	  name : 'jaques',
+	                	  name : 'jacques',
 	                	  ts : [
 	                	        {
+	                	        	jourSem : 'Lundi',
 	                	        	matin : 'abs',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Mardi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Mercredi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'abs',
+	                	        	aprem : 'abs'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Jeudi',
 	                	        	matin : 'vac',
-	                	        	aprem : 'vac',
+	                	        	aprem : 'vac'
 	                	        },
 	                	        {
+	                	        	jourSem : 'Vendredi',
 	                	        	matin : 'vac',
 	                	        	aprem : 'abs'
 	                	        }
@@ -70,12 +80,12 @@ function tsCtrl($scope) {
 	                  }
 	                  ]
 
-	$scope.click = function(toPrint) {
-		$scope.getGabarits();
+	$scope.click = function() {
+		
 	};
 
-	$scope.dblclick = function() {
-		window.open('form_ts.html','_blank');
+	$scope.dblclick = function(jour,matin_ou_aprem) {
+		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem,'_blank');
 		return false;
 	};
 	

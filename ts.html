@@ -160,8 +160,8 @@
 									<td class="alignLeft">{{agent.name}}</td>
 									<td ng-repeat="jour in agent.ts">
 									  	<div class="btn-group"> <!-- 2 boutons - matin et après midi - cliquables TODO : les fonctions onclick -->
-									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-click="click(jour.matin)" ng-dblclick="dblclick()"></button> 
-										<button type="button" ng-class = "{buttonAbs : {{jour.aprem=='abs'}}, buttonVac : {{jour.aprem=='vac'}}, buttonVide : {{jour.aprem=='null'}}}" ng-click="click(jour.aprem)" ng-dblclick="dblclick()"></button> 
+									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-click="click(jour.matin)" ng-dblclick="dblclick(jour.jourSem,'matin')"></button> 
+										<button type="button" ng-class = "{buttonAbs : {{jour.aprem=='abs'}}, buttonVac : {{jour.aprem=='vac'}}, buttonVide : {{jour.aprem=='null'}}}" ng-click="click(jour.aprem)" ng-dblclick="dblclick(jour.jourSem,'apres-midi')"></button> 
 										</div>
 									</td>
 									
