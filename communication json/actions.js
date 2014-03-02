@@ -86,15 +86,17 @@ function visuVacations(dateDebut, dateFin) {
 
 function listeGabaritsVacations() {
 	var jsonRetour = "{ \"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"17-02-2014 à 16:15:56\", \"action\" : \"listegabaritsvac\", \"msg\" : \"Succès de l'opération liste des gabarits de vacs. \","
-		+" \"gabarits\" : "
-		+" [ "
-		+" { \"gabcourt\" : \"HB5j\", \"libelle\" : \"Journée Horaire de bureau 37h/5j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
-		+" { \"gabcourt\" : \"HB6a\", \"libelle\" : \"Après midi horaire de bureau 36h/4,5j\", \"hhdeb\" : \"14:00\", \"hhfin\" :\"18:00\", \"HHPauseDeb\" :\"\", \"HHPauseFin\" :\"\", \"dureeT\": \"240\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
-		+" { \"gabcourt\" : \"HB4j\", \"libelle\" : \"Journée horaire de bureau 36h/4j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"18:45\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"585\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
-		+"  { \"gabcourt\" : \"HB5m\", \"libelle\" : \"Matinée horaire de bureau 37h/5j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"12:42\", \"HHPauseDeb\" :\"\", \"HHPauseFin\" :\"\", \"dureeT\": \"224\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
-		+"  { \"gabcourt\" : \"E100\", \"libelle\" : \"Mission ordinaire\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"}";
+	 +" \"gabarits\" : "
+	 +" [ "
+	 +" { \"gabcourt\" : \"HB5j\", \"libelle\" : \"Journée Horaire de bureau 37h/5j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
+	 +" { \"gabcourt\" : \"HB6a\", \"libelle\" : \"Après midi horaire de bureau 36h/4,5j\", \"hhdeb\" : \"14:00\", \"hhfin\" :\"18:00\", \"HHPauseDeb\" :\"\", \"HHPauseFin\" :\"\", \"dureeT\": \"240\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
+	 +" { \"gabcourt\" : \"HB4j\", \"libelle\" : \"Journée horaire de bureau 36h/4j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"18:45\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"585\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
+	 +"  { \"gabcourt\" : \"HB5m\", \"libelle\" : \"Matinée horaire de bureau 37h/5j\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"12:42\", \"HHPauseDeb\" :\"\", \"HHPauseFin\" :\"\", \"dureeT\": \"224\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"},"
+	 +"  { \"gabcourt\" : \"E100\", \"libelle\" : \"Mission ordinaire\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"VacModif\" : \"1\", \"Oblig\" :\"0\"}"
+	 +" ]"
+	 +" }";
 	return jsonRetour;
-}
+	}
 
 function poseVacations(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin) {
 	var jsonRetour = "{ \"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"18-02-2014 à 15:05:19\", \"action\" : \"pose\", \"msg\" : \"Succès de l'opération pose de du 23-02-2014 au 23-02-2014\" }";
