@@ -73,6 +73,11 @@ function tsCtrl($scope) {
 	$scope.click = function(toPrint) {
 		$scope.getGabarits();
 	};
+
+	$scope.dblclick = function() {
+		window.open('form_ts.html','_blank');
+		return false;
+	};
 	
 	$scope.getGabarits = function() {
 		//récupération des gabarits de vacations du serveur
