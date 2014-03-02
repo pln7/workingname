@@ -155,7 +155,58 @@
 					
 					<div class="well">
 						
-					<!-- Angular pour afficher les options -->	
+						<div class="row-fluid">
+							<!-- Liste à afficher en cas de selection "execution" à l'étape 1 -->
+							<fieldset>
+								<legend>Gabarits d'éxecution disponibles</legend>
+							
+							
+								<ul id="gabList_exec">
+									<label ng-repeat="gab in list_gab_exec">
+										<div class="view">
+											<input type="checkbox" class="toggle" ng-model="gab.selected">  {{gab.name}}
+										</div>
+									</label>
+								</ul>
+
+								<fieldset>
+				    				<legend> </legend>
+									<span id="gabCount_exec">
+										<strong>{{nb_gab_exec}}</strong> Gabarits sélectionnés
+									</span>
+								</fieldset>
+
+							</fieldset>
+
+							<!-- Liste à afficher en cas de selection "absence" à l'étape 1 -->
+							<fieldset>
+								<legend>Gabarits d'absence disponibles</legend>
+							
+							
+								<ul id="gabList_abs">
+									<label ng-repeat="gab in list_gab_abs">
+										<div class="view">
+											<input type="checkbox" class="toggle" ng-model="gab.selected">  {{gab.name}}
+										</div>
+									</label>
+								</ul>
+
+								<fieldset>
+				    				<legend> </legend>
+									<span id="gabCount_abs">
+										<strong>{{nb_gab_abs}}</strong> Gabarits sélectionnés
+									</span>
+								</fieldset>
+
+							</fieldset>
+
+						</div>
+						
+
+						<fieldset>
+					    	<legend> </legend>
+					    	<button type="submit" class="btn btn-info">Passer à l'étape 4</button>
+					    </fieldset>
 						
 					</div>
 				</div>
