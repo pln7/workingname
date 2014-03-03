@@ -195,6 +195,50 @@ function listeAgents() {
 }
 
 
+function infoAgentCourant (base, dateLundi) {
+	var jsonRetour = "{ \"serveur\" : \"nomServeur\" ,"
+		+" \"cr\" : 0 ,"
+		+" \"date\" : \"18-02-2014 à 15:25:02\","
+		+" \"action\" : \"infobilans\","
+		+" \"msg\" : \"Retour des infos bilan semaine du 17-02-2014\","
+		+" \"bilans\" :[{\"matricule\": \"MF0004321\","
+		+" \"teHebdo\" : \"36:45\","
+		+" \"teFinal\": \"220:28\","
+		+" \"teCalcul\": \"220:28\","
+		+" \"bilanCumulé\" : \"+67:28 \","
+		+" \"bilanFinal\" : \"+54:30\","
+		+" \"bilanHebdo\" : \"+05:34\","
+		+" \"bilanBrut\":\"+54:30\","
+		+" \"iphaFinal\": \"00:00\","
+		+" \"nuitHebdo\": \"09:00\","
+		+" \"nuitPaye\": \"00:00\","
+		+" \"compensationHebdo\":\"00:00\","
+		+" \"compensationFinal\":\"+00:00\","
+		+" \"IndemAstHebdo\":\"00:00\","
+		+" \"DeplacmtAstHebdo\":\"00:00\","
+		+" \"BHHebdo\":\"02:08\","
+		+" \"BHFinal\":\"07:52\","
+		+" \"BHRFinal\":\"00:00\","
+		+" \"BHIFinal\": \"00:00\","
+		+" \"RCHebdo\": \"00:54\","
+		+" \"RCFinal\": \"05:10\","
+		+" \"RCCAFinal\":\"05:10\","
+		+" \"RCRECFinal\": \"00:00\","
+		+" \"InfoA1Hebdo\": \"00:00\","
+		+" \"InfoB1Hebdo\": \"00:00\","
+		+" \"InfoC1Hebdo\": \"00:00\","
+		+" \"InfoA2Hebdo\": \"00:00\","
+		+" \"InfoB2Hebdo\": \"00:00\","
+		+" \"InfoC2Hebdo\": \"00:00\","
+		+" \"ObligHebdo\": \"35:00\","
+		+" \"ObligFinal\": \"251:36\","
+		+" \"ObligCalcul\": \"251:36\","
+		+" \"AbsCompens\": \"0\","
+		+" \"Nb1_2jNTHebdo\": \"2\"}]}";
+	return jsonRetour;
+}
+
+
 /*
  * fonctions travaillant sur les objets afin de pouvoir les manipuler de manière plus pratique
  */
