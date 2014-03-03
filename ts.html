@@ -157,7 +157,7 @@
 						<table class="table zebra-striped">
 							<tbody>
 								<tr ng-repeat="agent in agents">
-									<td class="alignLeft">{{agent.name}}</td>
+									<td title={{agent.name}} class="alignLeft">{{agent.pseudo}}</td>
 									<td ng-repeat="jour in agent.ts">
 									  	<div class="btn-group"> <!-- 2 boutons - matin et après midi - cliquables TODO : les fonctions onclick -->
 									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-click="click(jour.matin)" ng-dblclick="dblclick(jour.jourSem,'matin')"></button> 

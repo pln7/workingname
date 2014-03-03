@@ -122,33 +122,91 @@ function imprimeAbscence(insee, dateDebut, dateFin, matinApremDeb, matinApremFin
 
 
 function listeAgents() {
-	var jsonRetour = "{ \"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"17-02-2014 à 16:15:56\", \"action\" : \"listeagents\", \"msg\" : \"Succès de l'opération liste des agents. \","
-		+" \"agents\" : "
-		+" [ "
-		+" { \"insee\" : \"_______104\", \"nom\" : \"Durand\", \"prenom\" : \"Pierre\", \"matricule\" : \"PDURA\"},"
-		+" { \"insee\" : \"_______105\", \"nom\" : \"Dupond\", \"prenom\" : \"Jacques\", \"matricule\" : \"JDUPO\"}"
-		+"]"
-		+"}";
+	var jsonRetour = "{    \"serveur\": \"nomServeur\","
+		+"\"cr\": 0,"
+		+"\"date\": \"18-02-2014 à 15:25:02\","
+		+"\"base\": \"NNN\","
+		+"\"datelundi\": \"20140217\","
+		+"\"action\": \"infoagents\","
+		+"\"msg\": \"Retour des infos de tous les agents de la base NNN semaine du 17-02-2014 \","
+		+"\"infoagents\": [        {            \"matricule\": \"MF0001234\","
+		+"\"DateAppli\": \"20100101\","
+		+"\"Nom\": \"DUPONT\","
+		+"\"Prenom\": \"Pierre\","
+		+"\"Grade\": \"ITM\","
+		+"\"Echelon\": \"6\","
+		+"\"Fonc\": \"\","
+		+"\"Quotite\": \"100\","
+		+"\"Modalite\": \"1\","
+		+"\"TPNonTravaille\": \"\","
+		+"\"MTT\": \"0\","
+		+"\"NbJPivot\": \"5,00\","
+		+"\"DureeHebdoPivot\": \"37:00\","
+		+"\"PivotNonTravaille\": \"\","
+		+"\"PivotPoste\": \"0\","
+		+"\"ModeBonif\": \"5\","
+		+"\"CadreAuto\": \"0\","
+		+"\"CadreDir\": \"0\","
+		+"\"CadreTerritorial\": \"0\","
+		+"\"Categorie\": \"\","
+		+"\"Brigadiste\": \"0\","
+		+"\"BrigRattache\": \"0\","
+		+"\"ModeTravail\": \"2\","
+		+"\"ClasseServ\": \"2\","
+		+"\"AgentAstreint\": \"0\","
+		+"\"LogementService\": \"0\","
+		+"\"DomAstreinte\": \"255\","
+		+"\"QualifInfo\": \"1\","
+		+"\"pseudo\": \"PDUPO\","
+		+"\"insee\": \"_______104\","
+		+"\"TPdeDroit\": \"faux\"			        },"
+		+"{\"matricule\": \"MF0004321\","
+		+"\"DateAppli\": \"20120601\","
+		+"\"Nom\": \"SMITH\","
+		+"\"Prenom\": \"John\","
+		+"\"Grade\": \"TSE\","
+		+"\"Echelon\": \"4\","
+		+"\"Fonc\": \"\","
+		+"\"Quotite\": \"80\","
+		+"\"Modalite\": \"3\","
+		+"\"TPNonTravaille\": \"00300\","
+		+"\"MTT\": \"0\","
+		+"\"NbJPivot\": \"5,00\","
+		+"\"DureeHebdoPivot\": \"37:00\","
+		+"\"PivotNonTravaille\": \"\","
+		+"\"PivotPoste\": \"0\","
+		+"\"ModeBonif\": \"5\","
+		+"\"CadreAuto\": \"0\","
+		+"\"CadreDir\": \"0\","
+		+"\"CadreTerritorial\": \"0\","
+		+"\"Categorie\": \"\","
+		+"\"Brigadiste\": \"0\","
+		+"\"BrigRattache\": \"0\","
+		+"\"ModeTravail\": \"2\","
+		+"\"ClasseServ\": \"2\","
+		+"\"AgentAstreint\": \"0\","
+		+"\"LogementService\": \"0\","
+		+"\"DomAstreinte\": \"255\","
+		+"\"QualifInfo\": \"1\","
+		+"\"pseudo\": \"JSMIT\","
+		+"\"insee\": \"_______105\","
+		+"\"TPdeDroit\": \"faux\"}    ]}";
 	return jsonRetour;
 }
 
 
 /*
- * 
- * 
  * fonctions travaillant sur les objets afin de pouvoir les manipuler de manière plus pratique
- * 
- * 
  */
 
 
 /*
- * crée un objet contenant la correspondance INSEE/Matricule
+ * crée un objet contenant la correspondance INSEE/Pseudo
  * paramètre : une liste d'agents  (renvoyée par json2Object(listeAgents()) )
- * retour : un tableau contenant dans chaque ligne {insee : num_insee, matricule = matr_agent}
+ * retour : un tableau contenant dans chaque ligne {insee : num_insee, pseudo = pseudo_agent}
  */
-function correspondanceMatriculeInsee(listeAgents) {
-	var agents = listeAgents["agents"];
+function correspondancePseudoInsee(listeAgents) {
+	var agents = listeAgents["infoagents"];
 
 	var tableauRetour = new Array(); // tableau à retourner
 	var ligne = {}; // ligne du tableau correspondant à un agent
@@ -157,7 +215,7 @@ function correspondanceMatriculeInsee(listeAgents) {
 		temp = agents[prop];
 		ligne = {
 				insee : temp["insee"],
-				matricule : temp["matricule"]
+				pseudo : temp["pseudo"]
 		};
 		tableauRetour.push(ligne);
 	}
@@ -200,18 +258,18 @@ function getAbsencesSemaine(listeAbsences, _dateLundi) {
 
 
 /*
- * renvoie un tableau contenant les absences de l'agent donc le matricule est pasé en paramètre
+ * renvoie un tableau contenant les absences de l'agent donc le pseudo est pasé en paramètre
  * paramètre : liste des absences de base 
- * 			   matricule concerné
- * 			   tableau de correspondances insee/matricule
+ * 			   pseudo concerné
+ * 			   tableau de correspondances insee/pseudo
  */
-function getAbsencesByMatricule(listeAbsences, matricule, correspondances) {
+function getAbsencesByPseudo(listeAbsences, pseudo, correspondances) {
 	var insee;
 	var temp;
-	// récupère l'inse correspondant au matricule dans correspondances
+	// récupère l'inse correspondant au pseudo dans correspondances
 	for (prop in correspondances) {
 		temp = correspondances[prop];
-		if (temp["matricule"] == matricule) {
+		if (temp["pseudo"] == pseudo) {
 			insee = temp["insee"];
 		}
 	}

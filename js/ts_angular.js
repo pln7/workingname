@@ -18,7 +18,8 @@ function tsCtrl($scope) {
 
 	$scope.agents = [ // liste des agents TODO : récupérer à partir du JSON
 	                  {
-	                	  name : 'pierre', // matricule TODO : récupérer à partir du JSON
+	                	  pseudo : "PDUPO",
+	                	  name : 'Pierre Dupont', 
 	                	  ts : [
 	                	        {
 	                	        	jourSem : 'Lundi', 
@@ -49,7 +50,8 @@ function tsCtrl($scope) {
 	                  },
 
 	                  {
-	                	  name : 'jacques',
+	                	  pseudo : 'JDUVA',
+	                	  name : 'Jacques Duval',
 	                	  ts : [
 	                	        {
 	                	        	jourSem : 'Lundi',
