@@ -1,6 +1,6 @@
 //imputation année d'imputation, dateDebut et dateFin dates de début et de fin, matinApremDeb = 1 si début le matin et 2 si début l'après midi (idem matinApremFin)
 //retour : un json de validation de pose d'abscense
-function poserAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin) {
+function poserAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule) {
 
 	/*
 	on ne passe pas par le métier pégase
@@ -19,7 +19,7 @@ function poserAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, m
 
 //imputation année d'imputation, dateDebut et dateFin dates de début et de fin, matinApremDeb = 1 si début le matin et 2 si début l'après midi (idem matinApremFin)
 //retour : un json de validation de suppression d'abscence
-function supprimeAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin) {
+function supprimeAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule) {
 	/*
 	on ne passe pas par le métier pégase
 
@@ -33,35 +33,34 @@ function supprimeAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb
 }
 
 
-function visuAbsence(_anneeImputation) {
-	var anneeImputation = toString(_anneeImputation);
+function visuAbsence(dateDebut, dateFin, matricule) {
 	var jsonRetour = "{ "
 		+"\"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"17-02-2014 à 16:37:10\", \"action\" : \"visuabsences\", \"msg\" : \"Succès de l'opération visualisation des absences. \", \"absences\" : "
 		+"[ "
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20120914\", \"dateFin\" :\"20120914\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20120920\", \"dateFin\" :\"20120925\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"4\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130111\", \"dateFin\" :\"20130111\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130118\", \"dateFin\" :\"20130118\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130130\", \"dateFin\" :\"20130130\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130215\", \"dateFin\" :\"20130215\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130226\", \"dateFin\" :\"20130305\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"6\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130306\", \"dateFin\" :\"20130308\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CMFP\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés de maladie ordinaire \", \"commentaire\" : \"\", \"nombreJours\" : \"3\", \"reste\" : \"\" , \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130315\", \"dateFin\" :\"20130315\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130322\", \"dateFin\" :\"20130322\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130329\", \"dateFin\" :\"20130402\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130506\", \"dateFin\" :\"20130507\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130527\", \"dateFin\" :\"20130527\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130531\", \"dateFin\" :\"20130531\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130607\", \"dateFin\" :\"20130607\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130708\", \"dateFin\" :\"20130708\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130708\", \"dateFin\" :\"20130708\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"KJMI\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Compensation Missions ou autres \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"2\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130716\", \"dateFin\" :\"20130719\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"3.5\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130726\", \"dateFin\" :\"20130726\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130802\", \"dateFin\" :\"20130802\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130812\", \"dateFin\" :\"20130821\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"6\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130925\", \"dateFin\" :\"20130925\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20130926\", \"dateFin\" :\"20130927\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20131112\", \"dateFin\" :\"20131112\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CAHS\", \"imputation\" :\""+anneeImputation+"\", \"libelle\" :\"Jour de fractionnement pour congés annuels hors saison \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"1\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} "
+	/*	+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\"2014\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\"2014\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"4\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"6\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CMFP\", \"imputation\" :\"2014\", \"libelle\" :\"Congés de maladie ordinaire \", \"commentaire\" : \"\", \"nombreJours\" : \"3\", \"reste\" : \"\" , \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\"2014\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\"2014\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"SJRL\", \"imputation\" :\"2014\", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"KJMI\", \"imputation\" :\"2014\", \"libelle\" :\"Compensation Missions ou autres \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"2\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"3.5\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"0.5\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"6\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"*/
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140307\", \"dateFin\" :\"20140311\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"CAHS\", \"imputation\" :\"2014\", \"libelle\" :\"Jour de fractionnement pour congés annuels hors saison \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"1\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} "
 		+"]"
 		+"}";
 
@@ -69,16 +68,16 @@ function visuAbsence(_anneeImputation) {
 }
 
 
-function visuVacations(dateDebut, dateFin) {
+function visuVacations(dateDebut, dateFin, matricule) {
 
 	var jsonRetour = "{ \"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"17-02-2014 à 16:15:56\", \"action\" : \"visuvacations\", \"msg\" : \"Succès de l'opération liste des vacations du TS. \","
 		+" \"vacations\" : "
 		+" [ "
-		+" { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bdg\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse\", \"commvac\": \"\", \"dateDeb\": \"20140217\", \"dateFin\" :\"20140217\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"dureeReelle\": \"444\", \"dureeEffective\": \"444\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} ,"
-		+" { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bgC\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse corrigées\", \"commvac\": \"\", \"dateDeb\": \"20140218\", \"dateFin\" :\"20140218\", \"hhdeb\" : \"07:30\", \"hhfin\" :\"17:31\", \"HHPauseDeb\" :\"12:15\", \"HHPauseFin\" :\"13:00\", \"dureeT\": \"601\", \"dureeReelle\": \"556\", \"dureeEffective\": \"556\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} ,"
-		+"   { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bdM\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse modifiées\", \"commvac\": \"\", \"dateDeb\": \"20140219\", \"dateFin\" :\"20140219\", \"hhdeb\" : \"08:53\", \"hhfin\" :\"18:12\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"559\", \"dureeReelle\": \"514\", \"dureeEffective\": \"514\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} ,"
-		+" { \"insee\" : \"_______105\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"HB5a\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"0\", \"vacAstreinte\": \"\", \"libelle\": \"Journée Horaire de bureau 37h/5j\", \"commvac\": \"\", \"dateDeb\": \"20140220\", \"dateFin\" :\"20140220\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"dureeReelle\": \"444\", \"dureeEffective\": \"444\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} "
-		+" ]"
+		+" { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bdg\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse\", \"commvac\": \"\", \"dateDeb\": \"20140313\", \"dateFin\" :\"20140313\", \"hhdeb\" : \"13:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"dureeReelle\": \"444\", \"dureeEffective\": \"444\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} ,"
+		+" { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bgC\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse corrigées\", \"commvac\": \"\", \"dateDeb\": \"20140314\", \"dateFin\" :\"20140314\", \"hhdeb\" : \"07:30\", \"hhfin\" :\"11:31\", \"HHPauseDeb\" :\"12:15\", \"HHPauseFin\" :\"13:00\", \"dureeT\": \"601\", \"dureeReelle\": \"556\", \"dureeEffective\": \"556\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} "//REMETTRE LA VIRGULE
+	/*	+"   { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bdM\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse modifiées\", \"commvac\": \"\", \"dateDeb\": \"20140313\", \"dateFin\" :\"20140313\", \"hhdeb\" : \"08:53\", \"hhfin\" :\"18:12\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"559\", \"dureeReelle\": \"514\", \"dureeEffective\": \"514\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} ,"
+		+" { \"insee\" : \"_______105\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"HB5a\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"0\", \"vacAstreinte\": \"\", \"libelle\": \"Journée Horaire de bureau 37h/5j\", \"commvac\": \"\", \"dateDeb\": \"20140313\", \"dateFin\" :\"20140313\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"dureeReelle\": \"444\", \"dureeEffective\": \"444\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} "
+		*/+" ]"
 		+" }";
 	return jsonRetour;
 }
@@ -104,15 +103,6 @@ function poseVacations(absCourt, imputation, dateDebut, dateFin, matinApremDeb, 
 }
 
 
-function visuVacations(dateDebut, dateFin) {
-	var jsonRetour = "{ \"serveur\" : \"glycine31c\" , \"cr\" : 0 , \"date\" : \"17-02-2014 à 16:15:56\", \"action\" : \"visuvac\", \"msg\" : \"Succès de l'opération liste des vacations du TS. \","
-		+" \"vacations\" : "
-		+" [ "
-		+" { \"insee\" : \"_______104\", \"dateLundi\" : \"20140217\", \"vacCourt\": \"_bdg\", \"modifiable\": \"1\", \"vacExcept\": \"0\", \"vacSalon\": \"0\", \"vacNAS\": \"0\", \"vacCompensee\": \"0\",\"vacMission\": \"0\", \"vacBonifiée\": \"0\", \"vacBadgee\": \"1\", \"vacAstreinte\": \"\", \"libelle\": \"Vacation créée à partir d'infos badgeuse\", \"commvac\": \"\", \"dateDeb\": \"20140217\", \"dateFin\" :\"20140217\", \"hhdeb\" : \"09:00\", \"hhfin\" :\"17:09\", \"HHPauseDeb\" :\"12:00\", \"HHPauseFin\" :\"12:45\", \"dureeT\": \"489\", \"dureeReelle\": \"444\", \"dureeEffective\": \"444\", \"dureeCompensee\": \"0\", \"dureeDeplacmtAst\": \"0\", \"dureeInfoA\": \"0\", \"dureeInfoB\": \"0\", \"dureeInfoC\": \"0\"} "
-		+"]"
-		+"}";
-	return jsonRetour;
-}
 
 
 function imprimeAbscence(insee, dateDebut, dateFin, matinApremDeb, matinApremFin, absCourt, imputation, libelle, commentaire, nombreJours, reste, typeAbsence, JNT) {
@@ -157,7 +147,7 @@ function listeAgents() {
 		+"\"LogementService\": \"0\","
 		+"\"DomAstreinte\": \"255\","
 		+"\"QualifInfo\": \"1\","
-		+"\"pseudo\": \"PDUPO\","
+		+"\"Pseudo\": \"PDUPO\","
 		+"\"insee\": \"_______104\","
 		+"\"TPdeDroit\": \"faux\"			        },"
 		+"{\"matricule\": \"MF0004321\","
@@ -188,14 +178,14 @@ function listeAgents() {
 		+"\"LogementService\": \"0\","
 		+"\"DomAstreinte\": \"255\","
 		+"\"QualifInfo\": \"1\","
-		+"\"pseudo\": \"JSMIT\","
+		+"\"Pseudo\": \"JSMIT\","
 		+"\"insee\": \"_______105\","
 		+"\"TPdeDroit\": \"faux\"}    ]}";
 	return jsonRetour;
 }
 
 
-function infoAgentCourant (base, dateLundi) {
+function infoAgentCourant (matricule, date) {
 	var jsonRetour = "{ \"serveur\" : \"nomServeur\" ,"
 		+" \"cr\" : 0 ,"
 		+" \"date\" : \"18-02-2014 à 15:25:02\","
@@ -243,6 +233,126 @@ function infoAgentCourant (base, dateLundi) {
  * fonctions travaillant sur les objets afin de pouvoir les manipuler de manière plus pratique
  */
 
+/*
+ * renvoie un objet date contenant la date du vendredi précédent
+ * parametre : un objet de type Date à la date du lundi
+ * retour : un objet de type date à la date du vendredi de la semaine correspondante
+ */
+function getFriday(_dLundi) {
+	var dateVendrediDble = new Date();
+	var dateVendredi = clone(_dLundi);
+	dateVendrediDble.setTime(Date.parse(dateVendredi));
+	var toAdd = 86400000*4; // 4 jours en milisecondes
+	dateVendrediDble.setTime(dateVendrediDble.getTime()+toAdd);
+	return dateVendrediDble;
+}
+
+/*
+ * renvoie un objet date contenant la date du lundi précédent
+ * parametre : un objet de type Date
+ * retour : un objet de type date à la date du lundi précédent
+ */
+function getMonday(_d) {
+	var d = new Date();
+	var numJour = d.getDay();//numéro du jour - Dimanche = 0, Lundi 1,...
+	//o ndécale les numéros pour que lundi = 0, mardi = 1,...
+	if (numJour == 0) { 
+		numJour = 6;
+	} else {
+		numJour = numJour - 1;
+	}
+
+	//calcul de la date du lundi en millisecondes depuis le 1/1/1970
+	var milliToAdd = d.getTime() - (numJour*86400000); 
+
+	d.setTime(milliToAdd);
+
+	return d;
+}
+
+/*
+ * retourne un String représentant la date passée en paramètre sous la forme "20141222"
+ */
+function getDateStr(_d) {
+	d = new Date();
+	d = _d;
+	var annee = d.getFullYear();
+	var mois;
+	var jour;
+	//on rajoute les "0" pour les mois et jours avant le 10
+	if ((d.getMonth()+1) < 10) {
+		mois = "0"+(d.getMonth()+1);
+	} else {
+		mois = (d.getMonth()+1);
+	}
+	
+	if (d.getDate() < 10) {
+		jour = "0"+d.getDate();
+	} else {
+		jour = d.getDate();
+	}
+	
+	var strReturn = annee+""+mois+""+jour;
+	return strReturn;
+	
+};
+
+/* 
+ * calcule la différence en nombre de jours entre 2 dates (en valeur absolue, arrondie au supérieur
+ */
+function diffdate(d1,d2){
+	var WNbJours = d2.getTime() - d1.getTime();
+	WNbJours = WNbJours/(1000*60*60*24);
+	if (WNbJours < 0) {
+		WNbJours = -WNbJours;
+	}
+	return WNbJours;
+}
+
+/*
+ * convertit une date au format "20142103" en objet de type Date (à 0h00m00s)
+ */
+function getDate(dStr) {
+	d = new Date();
+	var annee = dStr.substring(0,4);
+	var mois = dStr.substring(4,6);
+	var jour = dStr.substring(6,8);
+	d.setFullYear(annee, mois, jour);
+	d.setHours(0, 0, 0, 0);
+	
+	return d;
+}
+
+/*
+ * Fonction de clonage
+ * @author Keith Devens
+ * @see http://keithdevens.com/weblog/archive/2007/Jun/07/javascript.clone
+ */
+function clone(srcInstance)
+{
+	/*Si l'instance source n'est pas un objet ou qu'elle ne vaut rien c'est une feuille donc on la retourne*/
+	if(typeof(srcInstance) != 'object' || srcInstance == null)
+	{
+		return srcInstance;
+	}
+	/*On appel le constructeur de l'instance source pour crée une nouvelle instance de la même classe*/
+	var newInstance = srcInstance.constructor();
+	/*On parcourt les propriétés de l'objet et on les recopies dans la nouvelle instance*/
+	for(var i in srcInstance)
+	{
+		newInstance[i] = clone(srcInstance[i]);
+	}
+	/*On retourne la nouvelle instance*/
+	return newInstance;
+}
+
+
+
+
+
+
+
+
 
 /*
  * crée un objet contenant la correspondance INSEE/Pseudo
@@ -259,7 +369,7 @@ function correspondancePseudoInsee(listeAgents) {
 		temp = agents[prop];
 		ligne = {
 				insee : temp["insee"],
-				pseudo : temp["pseudo"]
+				pseudo : temp["Pseudo"]
 		};
 		tableauRetour.push(ligne);
 	}
@@ -301,19 +411,14 @@ function getAbsencesSemaine(listeAbsences, _dateLundi) {
 }
 
 
-/*
- * renvoie un tableau contenant les absences de l'agent donc le pseudo est pasé en paramètre
- * paramètre : liste des absences de base 
- * 			   pseudo concerné
- * 			   tableau de correspondances insee/pseudo
- */
+
 function getAbsencesByPseudo(listeAbsences, pseudo, correspondances) {
 	var insee;
 	var temp;
 	// récupère l'inse correspondant au pseudo dans correspondances
 	for (prop in correspondances) {
 		temp = correspondances[prop];
-		if (temp["pseudo"] == pseudo) {
+		if (temp["Pseudo"] == pseudo) {
 			insee = temp["insee"];
 		}
 	}
@@ -328,54 +433,6 @@ function getAbsencesByPseudo(listeAbsences, pseudo, correspondances) {
 	}
 	return tableauRetour;
 }
-
-
-/*
- * renvoie un objet date contenant la date du lundi précédent
- * parametre : un objet de type Date
- * retour : un objet de type date à la date du lundi précédent
- */
-function getMonday(_d) {
-	var d = new Date();
-	var numJour = d.getDay();//numéro du jour - Dimanche = 0, Lundi 1,...
-	//o ndécale les numéros pour que lundi = 0, mardi = 1,...
-	if (numJour == 0) { 
-		numJour = 6;
-	} else {
-		numJour = numJour - 1;
-	}
-
-	//calcul de la date du lundi en millisecondes depuis le 1/1/1970
-	var milliToAdd = d.getTime() - (numJour*86400000); 
-
-	d.setTime(milliToAdd);
-
-	return d;
-}
-
-
-/*
- * a voir si a coder
- * */
-
-//idem poserAbscence, mais modifie un objet Tableau de service pour prendre en compte la modification
-function poserAbscenceMod(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, objetAModifier) {
-	var retour = objetAModifier;
-	var json = "{ \"insee\" : \"_______104\", \"dateDebut\" : "+dateDebut+", \"dateFin\" : "+dateFin+", \"matinApremDeb\" :"+matinApremDeb+", \"matinApremFin\" :"+matinApremFin+", \"absCourt\" : "+absCourt+", \"imputation\" :"+imputation+", \"libelle\" :\"JRTT libre \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"0\", \"typeAbsence\" : \"1\", \"JNT\" : \"0\"}";
-	var nouvelleAbs = JSON.parse(json);
-	retour.abscences.push(nouvelleAbs);
-	return retour;
-}
-
-
-
-//idem supprimeAbscence, mais modifie un objet Tableau de service pour prendre en compte la modification
-function supprimeAbscenceMod(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, objetAModifier) {
-	var retour = objetAModifier;
-
-	return retour;
-}
-
 
 
 

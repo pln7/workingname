@@ -17,7 +17,11 @@
 <script type="text/javascript" src="js/ts.js"></script>
 </head>
 
-<body ng-app>
+<body ng-app ng-controller="tsCtrl">
+{{initTs(dateLundi)}}
+
+
+
 	<!-- Barre de navigation -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner">
@@ -57,10 +61,8 @@
 		</div>
 		<div class="span6">
 			<h2 style="text-align:center;margin-left:100px;">
-				Semaine 
-				<script type="text/javascript" language="javascript">
-					document.write(getWeekNumber());
-				</script>
+				Semaine du {{dateLundi}}
+				
 			</h2>
 		</div>
 	</div>
@@ -70,10 +72,10 @@
 
 		<div class="offset4">
 			<!-- Semaine précédente/suivante -->
-			<button type="button" class="btn btn-default btn-lg">
+			<button type="button" class="btn btn-default btn-lg" ng-click="semPrec()">
 				<i class="icon-chevron-left"></i> Semaine précedente
 			</button>
-			<button type="button" class="btn btn-default btn-lg">
+			<button type="button" class="btn btn-default btn-lg" ng-click="semSuiv()">
 				Semaine suivante <i class="icon-chevron-right"></i>
 			</button>
 		</div>
@@ -104,7 +106,7 @@
 			</div>
 
 
-			<div class="row" ng-controller="tsCtrl">
+			<div class="row">
 				<!-- Gabarits -->
 				<div class="span3">
 					<fieldset>
@@ -160,8 +162,8 @@
 									<td title={{agent.name}} class="alignLeft">{{agent.pseudo}}</td>
 									<td ng-repeat="jour in agent.ts">
 									  	<div class="btn-group"> <!-- 2 boutons - matin et après midi - cliquables TODO : les fonctions onclick -->
-									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-click="click(jour.matin)" ng-dblclick="dblclick(jour.jourSem,'matin')"></button> 
-										<button type="button" ng-class = "{buttonAbs : {{jour.aprem=='abs'}}, buttonVac : {{jour.aprem=='vac'}}, buttonVide : {{jour.aprem=='null'}}}" ng-click="click(jour.aprem)" ng-dblclick="dblclick(jour.jourSem,'apres-midi')"></button> 
+									  	<button type="button"  ng-class = "{buttonAbs : {{jour.matin=='abs'}}, buttonVac : {{jour.matin=='vac'}}, buttonVide : {{jour.matin=='null'}}}" ng-dblclick="dblclick(jour.jourSem,'matin')"></button> 
+										<button type="button" ng-class = "{buttonAbs : {{jour.aprem=='abs'}}, buttonVac : {{jour.aprem=='vac'}}, buttonVide : {{jour.aprem=='null'}}}" ng-dblclick="dblclick(jour.jourSem,'apres-midi')"></button> 
 										</div>
 									</td>
 									
