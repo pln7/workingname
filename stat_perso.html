@@ -75,8 +75,8 @@
 						<!-- Enregistrer le choix pour Etape 3 et 4 dynamique -->
 						<fieldset>
 					    	<legend> Cliquez pour passer à l'étape 2 :</legend>
-					    	<button type="submit" class="btn btn-info">Execution</button>
-					    	<button type="submit" class="btn btn-info">Absences</button>
+					    	<button type="submit" class="btn btn-info" ng-click="clicExec()">Execution</button>
+					    	<button type="submit" class="btn btn-info" ng-click="clicAbs()">Absences</button>
 					    </fieldset>
 						
 					</div>
@@ -157,7 +157,7 @@
 						
 						<div class="row-fluid">
 							<!-- Liste à afficher en cas de selection "execution" à l'étape 1 -->
-							<fieldset>
+							<fieldset ng-class = "{invisible : !isExec}">
 								<legend>Gabarits d'éxecution disponibles</legend>
 							
 							
@@ -179,7 +179,7 @@
 							</fieldset>
 
 							<!-- Liste à afficher en cas de selection "absence" à l'étape 1 -->
-							<fieldset>
+							<fieldset ng-class = "{invisible : isExec}">
 								<legend>Gabarits d'absence disponibles</legend>
 							
 							
@@ -224,7 +224,7 @@
 			</div>
 			
 			<!-- Tableau à afficher en cas de selection "execution" à l'étape 1 -->
-			<div class="row-fluid">
+			<div class="row-fluid" ng-class = "{invisible : !isExec}">
 				<table class="table table-striped" id="tableau_historique">
 					<thead>
 						<tr class="alert alert-info">
@@ -247,7 +247,7 @@
 			</div>
 
 			<!-- Tableau à afficher en cas de selection "absences" à l'étape 1 -->
-			<div class="row-fluid">
+			<div class="row-fluid" ng-class = "{invisible : isExec}">
 				<table class="table table-striped" id="tableau_historique">
 					<thead>
 						<tr class="alert alert-info">

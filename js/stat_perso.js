@@ -594,5 +594,12 @@ function GabCtrl($scope, filterFilter){
       selected : false
      }
   ]
-
+  $scope.isExec = false;
+  $scope.clicExec = function() {
+	$scope.isExec = true;
+  }
+  
+  $scope.clicAbs = function() {
+	$scope.isExec = false;
+	}
 }

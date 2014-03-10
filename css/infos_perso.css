@@ -65,6 +65,9 @@ body {
    border: 1px solid #888;
 }
 
+.invisible {
+	display : none;
+}
 
 /* style pour tablesorter*/
 
