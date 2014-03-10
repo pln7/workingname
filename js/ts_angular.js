@@ -73,6 +73,7 @@ function tsCtrl($scope) {
 		//on initialise toutes les variables en dehors des boucles pour optimiser le temps d'exécution
 		var dateLundiStr = getDateStr($scope.dateLundi); // format 20141221
 		var dateVendrediStr = getDateStr(getFriday($scope.dateLundi)); // format 20141221 
+
 		var temp;
 		var tempTS;
 		var matricule;
