@@ -16,8 +16,8 @@
 <script src="js/form_ts.js"></script>
 
 </head>
-
-<body ng-app>
+<!-- absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule -->
+<body>
 
 <script>	
 	ecrireJour();
@@ -33,42 +33,19 @@
 	</div>
 </div>
 
-
-<div class="container">
-
-		<form action="" class="form-stacked">
-			<fieldset class="fieldset_general"> 
-				<legend> <strong> Agent </strong> </legend>
-				<div class="clearfix">
-					<label> Nom abrégé de l'agent </label>	
-					<span class="input-xlarge uneditable-input"> {{agent.name}} </span>		
-				</div>
-			</fieldset>
-			<fieldset class="fieldset_general"> 
-				<legend> <strong> Gabarit </strong> </legend>
-				<div class="clearfix">
-					<label> Nom abrégé de l'agent </label>	
-					<span class="input-xlarge uneditable-input"> {{agent.name}} </span>		
-				</div>
-			</fieldset>
-			<fieldset class="fieldset_general"> 
-				<legend> <strong> Cas particulier </strong> </legend>
-				<div class="clearfix">
-					<label> Nom abrégé de l'agent </label>	
-					<span class="input-xlarge uneditable-input"> {{agent.name}} </span>		
-				</div>
-			</fieldset>
-			<fieldset class="fieldset_general"> 
-				<legend> <strong> Commentaire </strong> </legend>
-				<div class="clearfix">
-					<label> Nom abrégé de l'agent </label>	
-					<span class="input-xlarge uneditable-input"> {{agent.name}} </span>		
-				</div>
-			</fieldset>
-
-
-		</form>
-
+<div class="content">
+	<div class="container">
+			<form action="" class="form-stacked">
+				<fieldset class="fieldset_general"> 
+					<legend> <strong> Formulaire d'édition/modification de vacations/absences ( à faire : les valeurs des champs du JSON associé sont stockées dans le tableau infos
+									  de ts_angular.js ) </strong> </legend>
+					<div class="clearfix">
+						<label> Exemple </label>	
+						<span class="input-xlarge uneditable-input"> {{infos.pseudo}} </span>		
+					</div>
+				</fieldset>
+			</form>
+	</div>
 </div>
 
 	<!-- Le javascript -->
