@@ -16,7 +16,7 @@
 
   </head>
 
-  <body>
+  <body ng-app ng-controller="recapAlimCtrl">
 
     <!-- Barre de navigation -->
 	<div class="navbar navbar-inverse navbar-fixed-top">
@@ -65,26 +65,11 @@
 				<div class="span6 offset3">
 					
 					<div class="well" style="text-align: center;">
-						
-							Veuillez choisir l'année de référence à afficher
-
-						<div class="input" style="margin-top:10px;">
-				            <select name="annee">
-				              <option value="2014">2014</option>
-				              <option value="2013">2013</option>
-				              <option value="2012">2012</option>
-				              <option value="2011">2011</option>
-				              <option value="2010">2010</option>
-				              <option value="2009">2009</option>
-				              <option value="2008">2008</option>
-				              <option value="2007">2007</option>
-				              <option value="2006">2006</option>
-				              <option value="2005">2005</option>
-				              <option value="2004">2004</option>
-				              <option value="2003">2003</option>
-				              <option value="2002">2002</option>
-				              <option value="2001">2001</option>
-				              <option value="2000">2000</option>
+					<!-- Selection de l'année avec appel à getInfos, reste à modifier pour récupérer les bonnes infos côté serveur -->
+						Veuillez choisir l'année de référence à afficher
+						<div class="row-fluid" style="margin-top:10px;">
+				            <select ng-model="liste_annees" ng-change="getInfos(annee.num,'PDUPO')">
+				            	<option ng-repeat="annee in liste_annees"> {{annee.num}} </option>
 				            </select> 
 				        </div>
 					</div>
@@ -94,11 +79,10 @@
 				<div class="row-fluid">
 
 					<div class="span12">
-						<table class="table table-striped table-hover tablesorter" id="tableau_historique">
+						<table class="table table-striped table-hover tablesorter" id="tableau_alim">
 							<thead>
 								<tr class="alert alert-info">
-									<th class="header">Nom</th>
-									<th class="header">Prénom</th>
+									<th class="header">Agent</th>
 									<th class="header">Date</th>
 									<th class="header">Alim. CANN</th>
 									<th class="header">Alim. CAHS</th>
@@ -110,32 +94,10 @@
 							</thead>
 						
 							<tbody>
-								<tr>
-									<td>Delon</td>
-									<td>Alain</td>
-									<td>29/12/2013</td>
-									<td>5.0</td>
-									<td>0.0</td>
-									<td>0.0</td>
-									<td>0.0</td>
-									<td>5.0</td>
-									<td>5.0</td>
-								</tr>
-								<tr>
-									<td>Delon</td>
-									<td>Alain</td>
-									<td>29/12/2013</td>
-									<td>5.0</td>
-									<td>0.0</td>
-									<td>0.0</td>
-									<td>0.0</td>
-									<td>5.0</td>
-									<td>5.0</td>
-								</tr>
-								<tr>
-									<td>Delon</td>
-									<td>Alain</td>
-									<td>29/12/2013</td>
+								<!-- Reste à récupérer les bonnes infos avec la fonction getInfos -->
+								<tr> 
+									<td>PDUPO</td>
+									<td>{{infos.date}}</td>
 									<td>5.0</td>
 									<td>0.0</td>
 									<td>0.0</td>
@@ -173,6 +135,12 @@
   			$("#tableau_historique").tablesorter({ sortList: [[0,0]] });
 		});
 	</script>
+
+	<script type="text/javascript" src="js/recap_alim.js"></script>
+	<script src="communication json/actions.js"></script>
+	<script src="communication json/json2Object.js"></script>
+	<script src="communication json/getObjectProperties.js"></script>
+	<script src="lib/angular.js"></script>
 
   </body>
 

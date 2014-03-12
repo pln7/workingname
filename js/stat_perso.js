@@ -1,4 +1,9 @@
+// Page javascript gérant les statistiques personnelles
+
+// Controleur angular
 function GabCtrl($scope, filterFilter){
+
+    // A intégrer : fonction de récupération des infos en fonction des choix de l'utilisateur
 
     // Fonctions pour gérer le dynamisme du nombre de gabarits séléctionnés
     $scope.$watch('list_gab_exec', function(){
@@ -9,7 +14,7 @@ function GabCtrl($scope, filterFilter){
       $scope.nb_gab_abs = filterFilter($scope.list_gab_abs, {selected:true}).length;
     },true);
 
-    // contient tous les gabarits d'exécution
+    //Liste de tous les gabarits d'exécution
     $scope.list_gab_exec = [
       {
         name : 'DP   : Développement produits',
@@ -291,7 +296,7 @@ function GabCtrl($scope, filterFilter){
     ];
 
 
-// contient tous les gabarits d'absence
+  // Liste de tous les gabarits d'absence
   $scope.list_gab_abs = [
      {
       name : 'AHAD : Aut. d\'abs. pour siéger en commission d\'adoption',
@@ -594,12 +599,18 @@ function GabCtrl($scope, filterFilter){
       selected : false
      }
   ]
+
+  // Affiche par défaut les statistiques d'absence
   $scope.isExec = false;
+
+  // Clic sur bouton Execution affiche les statistiques d'éxecution
   $scope.clicExec = function() {
-	$scope.isExec = true;
+	 $scope.isExec = true;
   }
   
+  // Clic sur bouton Absence affiche les statistiques d'absence
   $scope.clicAbs = function() {
-	$scope.isExec = false;
+	 $scope.isExec = false;
 	}
+  
 }

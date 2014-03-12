@@ -72,7 +72,8 @@
 					
 					<div class="well">
 						
-						<!-- Enregistrer le choix pour Etape 3 et 4 dynamique -->
+						<!-- Selection du type de statistique à afficher -->
+						<!-- Affiche les statistiques d'absence par défaut -->
 						<fieldset>
 					    	<legend> Cliquez pour passer à l'étape 2 :</legend>
 					    	<button type="submit" class="btn btn-info" ng-click="clicExec()">Execution</button>
@@ -83,6 +84,7 @@
 				</div>
 			</div>
 
+			<!-- Etape 2 : selection de la période. A intégrer : donner un sens à ces choix lors de la récupération des infos côté serveur --> 
 			<div class="row-fluid">
 
 				<div class="span8 offset2">
@@ -93,7 +95,7 @@
 					<div class="well">
 
 						<form action="#" id="etape2">
-							
+						
 						<fieldset>
 							<legend>Sélectionnez manuellement la période :</legend>
 								<div class="clearfix"><labe>Date de début</label>
@@ -123,7 +125,7 @@
 					              <option value="9">Semestre précédent</option>
 					              <option value="10">Année en cours</option>
 					              <option value="11">Année flottante</option>
-					              <option value="12">Année précédente	</option>
+					              <option value="12">Année précédente</option>
 					            </select> 
 					        </div>
 						</fieldset>
@@ -131,11 +133,12 @@
 				       
 				        <fieldset>
 				        	<legend>  </legend>
-				          	<input type="checkbox" style="margin-bottom:10px;"> Cumuler les compensations au temps de travail effectif
+				        	<input type="checkbox" style="margin-bottom:10px;"> Cumuler les compensations au temps de travail effectif
 				        </fieldset>
 						        
 						<fieldset>
 					    	<legend> </legend>
+					    	<!-- Bouton inutile en l'état, possibilité de l'utiliser n'afficher les étapes suivantes qu'après le clic -->
 					    	<button type="submit" class="btn btn-info">Passer à l'étape 3</button>
 					    </fieldset>
 
@@ -156,7 +159,7 @@
 					<div class="well">
 						
 						<div class="row-fluid">
-							<!-- Liste à afficher en cas de selection "execution" à l'étape 1 -->
+							<!-- Liste affichée en cas de selection "execution" à l'étape 1 -->
 							<fieldset ng-class = "{invisible : !isExec}">
 								<legend>Gabarits d'éxecution disponibles</legend>
 							
@@ -178,7 +181,7 @@
 
 							</fieldset>
 
-							<!-- Liste à afficher en cas de selection "absence" à l'étape 1 -->
+							<!-- Liste affichée en cas de selection "absence" à l'étape 1 -->
 							<fieldset ng-class = "{invisible : isExec}">
 								<legend>Gabarits d'absence disponibles</legend>
 							
@@ -205,6 +208,7 @@
 
 						<fieldset>
 					    	<legend> </legend>
+					    	<!-- Bouton inutile en l'état, possibilité de l'utiliser n'afficher les étapes suivantes qu'après le clic -->
 					    	<button type="submit" class="btn btn-info">Passer à l'étape 4</button>
 					    </fieldset>
 						
@@ -223,14 +227,15 @@
 
 			</div>
 			
-			<!-- Tableau à afficher en cas de selection "execution" à l'étape 1 -->
+			<!-- Tableau affiché en cas de selection "execution" à l'étape 1 -->
+			<!-- A intégrer : récupération des bonnes infos côté serveur -->
 			<div class="row-fluid" ng-class = "{invisible : !isExec}">
 				<table class="table table-striped" id="tableau_historique">
 					<thead>
 						<tr class="alert alert-info">
 							<th class="header">Nom</th>
 							<th class="header" ng-repeat="gab_exec in list_gab_exec" ng-if="gab_exec.selected == true">
-								{{gab.abrev}}
+								{{gab_exec.abrev}}
 							</th>
 							<th class="header">Total</th>
 						</tr>
@@ -246,14 +251,15 @@
 				</table>
 			</div>
 
-			<!-- Tableau à afficher en cas de selection "absences" à l'étape 1 -->
+			<!-- Tableau affiché en cas de selection "execution" à l'étape 1 -->
+			<!-- A intégrer : récupération des bonnes infos côté serveur -->
 			<div class="row-fluid" ng-class = "{invisible : isExec}">
 				<table class="table table-striped" id="tableau_historique">
 					<thead>
 						<tr class="alert alert-info">
 							<th class="header">Nom</th>
 							<th class="header" ng-repeat="gab_abs in list_gab_abs" ng-if="gab_abs.selected == true">
-								{{gab.abrev}}
+								{{gab_abs.abrev}}
 							</th>
 							<th class="header">Total</th>
 						</tr>
