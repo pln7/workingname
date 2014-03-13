@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+<meta charset="utf-8">
+<title>Edition demi-journée</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Le style -->
+<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="css/form_ts.css" type="text/css" rel="stylesheet">
+<link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+<style type="text/css"></style>
+<script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
+
+</head>
+
+<body ng-app ng-controller="tsCtrl">
+
+{{initTs()}}
+{{ecrireInfosEdition()}}
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="brand" href="#">Edition demi-journée
+				<div id="jour"></div>
+			</a>
+		</div>
+	</div>
+</div>
+
+
+<div class="container" style="margin-top:60px">
+		<!--
+		<div class="span9 span91">
+			<table class="table zebra-striped">
+				<tbody>
+					<tr ng-repeat="agent in agents">
+						<td title={{agent.name}} class="alignLeft">{{agent.pseudo}}</td>
+						<td ng-repeat="info in agent.infos">
+							{{info.absAbsCourt}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		-->
+	
+	<!-- On ne met que les infos relatives à l'agent dont la ligne du tableau de service a été selectionné -->
+	<div class="row-fluid">
+		
+		<div class="span2">
+			<fieldset>
+				<h3> Agent : </h3>
+				<strong>
+					<div id="pseudoAgent"></div>	
+				</strong>
+			</fieldset>
+		</div>
+	   
+		<div class="span8" style="margin-top:20px" ng-if="getAbsVac()=='abs'">
+			<div class="alert alert-info" >
+				<strong>Absence</strong> 
+			</div>
+			
+			<div class="well">
+
+				<form>
+					
+					<fieldset>
+						<div class="clearfix">
+							<label> Journée </label>
+							<div class="input">
+					         	  <select name="journeeAbs">
+						              <option value="lundi">Lundi</option>
+						              <option value="mardi">Mardi</option>
+						              <option value="mercredi">Mercredi</option>
+						              <option value="jeudi">Jeudi</option>
+						              <option value="vendredi">Vendredi</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+						<div class="clearfix">
+							<label> Matinée/Après-midi </label>
+							<div class="input">
+					         	  <select name="matin_ou_apremAbs">
+						              <option value="matin">Matin</option>
+						              <option value="aprem">Après-midi</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+						<div class="clearfix">
+							<label> Gabarit </label>
+							<div class="input">
+					         	  <select name="gabaritAbs">
+						              <option value="cahs">CAHS</option>
+						              <option value="cann">CANN</option>
+						              <option value="rebl">REBL</option>
+						              <option value="kjmi">KJMI</option>
+						              <option value="sjrl">SJRL</option>
+						              <option value="cmfp">CMFP</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Année d'imputation</label>
+								<div class="input">
+									<input type="text" placeholder="jj/mm/aaaa"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Libellé</label>
+								<div class="input-xxlarge">
+									<input type="text" placeholder="Libellé"/>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Commentaire</label>
+								<textarea rows="3">
+
+								</textarea>
+							</div>
+					</fieldset>
+
+					<fieldset>
+				    	<legend> </legend>
+				    	<button class="btn btn-info">Confirmer</button>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid" style="padding-top:-30px" ng-if="getAbsVac()=='vac'">
+
+		<div class="span8 offset2">
+			<div class="alert alert-info">
+				<strong>Vacation</strong> 
+			</div>
+			
+			<div class="well">
+				<form>
+
+					<fieldset>
+						<div class="clearfix">
+							<label> Journée </label>
+							<div class="input">
+					         	  <select name="journeeVac">
+						              <option value="lundi">Lundi</option>
+						              <option value="mardi">Mardi</option>
+						              <option value="mercredi">Mercredi</option>
+						              <option value="jeudi">Jeudi</option>
+						              <option value="vendredi">Vendredi</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+						<div class="clearfix">
+							<label> Matinée/Après-midi </label>
+							<div class="input">
+					         	  <select name="matin_ou_apremVac">
+						              <option value="matin">Matin</option>
+						              <option value="aprem">Après-midi</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+				
+					<fieldset>
+						<div class="clearfix">
+							<label> Gabarit </label>
+							<div class="input">
+					         	<select name="gabarit_vac">
+						              <option value="hb5j">HB5j</option>
+						              <option value="hb6a">HB6a</option>
+						              <option value="hb4j">HB4j</option>
+						              <option value="hb5m">HB5m</option>
+						              <option value="e100">E100</option>
+					            </select> 
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Modifiable</label>
+								<div class="input">
+									<input type="text" placeholder="0 ou 1"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Libellé</label>
+								<div class="input-xxlarge">
+									<input type="text" placeholder="Libellé"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Exception</label>
+								<div class="input">
+									<select name="exception">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Salon</label>
+								<div class="input">
+									<select name="salon">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>NAS</label>
+								<div class="input">
+									<select name="nas">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Compensée</label>
+								<div class="input">
+									<select name="compensee">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Mission</label>
+								<div class="input">
+									<select name="mission">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Bonifiée</label>
+								<div class="input">
+									<select name="bonifiee">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Badgée</label>
+								<div class="input">
+									<select name="badgee">
+						              <option value="Oui">Oui</option>
+						              <option value="Non">Non</option>
+						            </select>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Astreinte</label>
+								<div class="input">
+									<input type="text"/>
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Heure de début</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de fin</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de pose début</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de pose fin</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée effective</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée compensée</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée de déplacement ( astreinte )</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info A</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info B</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info C</label>
+								<div class="input">
+									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+								</div>
+							</div>
+					</fieldset>
+
+					
+					
+					<fieldset>
+							<div class="clearfix"><label>Commentaire</label>
+								<textarea rows="3">
+
+								</textarea>
+							</div>
+					</fieldset>
+
+					<fieldset>
+				    	<legend> </legend>
+				    	<button class="btn btn-info">Confirmer</button>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+	<!-- Le javascript -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="bootstrap/js/jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="lib/angular.js"></script>
+	<script src="js/ts_angular.js"></script>
+	<script src="communication json/actions.js"></script>
+	<script src="communication json/json2Object.js"></script>
+	<script src="communication json/getObjectProperties.js"></script>
+	<script src="lib//copy.js"></script>
+</body>
+</html>

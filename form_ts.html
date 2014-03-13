@@ -19,11 +19,7 @@
 <body ng-app ng-controller="tsCtrl">
 
 {{initTs()}}
-
-<script>	
-	ecrireInfos();
-</script>
-
+{{ecrireInfos()}}
 
 
 
@@ -68,7 +64,7 @@
 	   
 		<div class="span8" style="margin-top:20px" ng-if="agent.infos[getNumJournee()].absAbsCourt!='null'">
 			<div class="alert alert-info" >
-				<strong>Absences</strong> 
+				<strong>Absence</strong> 
 			</div>
 			
 			<div class="well">
@@ -107,7 +103,6 @@
 								</textarea>
 							</div>
 					</fieldset>
-
 				</form>
 			</div>
 		</div>
@@ -116,7 +111,7 @@
 
 		<div class="span8 offset2" ng-if="agent.infos[getNumJournee()].vacVacCourt!='null'">
 			<div class="alert alert-info">
-				<strong>Vacations</strong> 
+				<strong>Vacation</strong> 
 			</div>
 			
 			<div class="well">
@@ -317,6 +312,5 @@
 	<script src="communication json/json2Object.js"></script>
 	<script src="communication json/getObjectProperties.js"></script>
 	<script src="lib//copy.js"></script>
-	<script src="js/form_ts.js"></script>
 </body>
 </html>

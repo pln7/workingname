@@ -862,15 +862,31 @@ function tsCtrl($scope) {
 		initTs($scope.dateLundi);
 	}
 
-	$scope.dblclick = function(jour,matin_ou_aprem,index) {
+	// Ici le pseudo doit être égal au pseudo de l'agent qui consulte le TS
+	// Ecrit en dur pour l'instant
+	$scope.clickAbs = function(pseudo) {
 		
-		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem+'&pseudoAgent='+index,'_blank');
-		$scope.pseudoAgent = getNomAgent();
+		window.open('form_ts_edition.html?pseudoAgent='+pseudo+'&op=abs','_blank');
 		return false;
 	};
 
+	// Ici le pseudo doit être égal au pseudo de l'agent qui consulte le TS
+	// Ecrit en dur pour l'instant
+	$scope.clickVac = function(pseudo) {
+		
+		window.open('form_ts_edition.html?pseudoAgent='+pseudo+'&op=vac','_blank');
+		return false;
+	};
+
+	$scope.dblclick = function(jour,matin_ou_aprem,pseudo) {
+		
+		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem+'&pseudoAgent='+pseudo,'_blank');
+		return false;
+	};
+
+	//récupération des gabarits de vacations du serveur
 	$scope.getGabarits = function() {
-		//récupération des gabarits de vacations du serveur
+		
 		var json = listeGabaritsVacations();
 		var objet = json2Object(json);
 		var listegabarits = objet["gabarits"];
@@ -897,6 +913,41 @@ function tsCtrl($scope) {
 	  	return pseudoAgent;
 	}
 
+	// Pour l'édition, afin de savoir si on édite une absence ou une vacation
+	$scope.getAbsVac = function() {
+		var parameters = location.search.substring(1).split("&");
+	    var temp = parameters[0].split("=");
+	    temp = parameters[1].split("=");
+	    absVac = unescape(temp[1]);
+	    return absVac;
+	}
+
+	// Récupération du pseudo de l'agent pour l'édition
+	$scope.ecrireInfosEdition = function() {
+	    var parameters = location.search.substring(1).split("&");
+	    var temp = parameters[0].split("=");
+	    pseudoAgent = unescape(temp[1]);
+	    document.getElementById("pseudoAgent").innerHTML =pseudoAgent;
+  	}
+
+
+  	// Récupération des infos de la journée sélectionnée
+	$scope.ecrireInfos = function() {
+		window.onload = function() {
+		    var parameters = location.search.substring(1).split("&");
+		    var temp = parameters[0].split("=");
+		    jour = unescape(temp[1]);
+		    temp = parameters[1].split("=");
+		    matin_ou_aprem = unescape(temp[1]);
+		    temp = parameters[2].split("=");
+		    pseudoAgent = unescape(temp[1]);
+		    document.getElementById("jour").innerHTML = 'du '+jour +' '+matin_ou_aprem;
+		    document.getElementById("pseudoAgent").innerHTML = pseudoAgent;
+		}
+	  }
+
+
+
 	// Retourne le numéro de la journée : 0 pour le lundi matin, 9 pour pour le Vendredi après-midi
 	$scope.getNumJournee = function() {
 		var parameters = location.search.substring(1).split("&");
@@ -907,8 +958,7 @@ function tsCtrl($scope) {
 		
 	    var numJournee = 0;
 
-	    
-
+	    // Quel jour est sélectionné ?
 	    if (jour=='Lundi') {
 	    	numJournee += 0;
 	    }
@@ -928,6 +978,7 @@ function tsCtrl($scope) {
 	    	alert('Erreur dans getNumJournee')
 	    }
 	   
+	    // Quelle demi-journée est sélectionnée ?
 	    if (matin_ou_aprem=="matin") {
 
 	    }
