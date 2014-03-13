@@ -1,4 +1,4 @@
-//imputation année d'imputation, dateDebut et dateFin dates de début et de fin, matinApremDeb = 1 si début le matin et 2 si début l'après midi (idem matinApremFin)
+7//imputation année d'imputation, dateDebut et dateFin dates de début et de fin, matinApremDeb = 1 si début le matin et 2 si début l'après midi (idem matinApremFin)
 //retour : un json de validation de pose d'abscense
 function poserAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule) {
 
@@ -60,7 +60,7 @@ function visuAbsence(dateDebut, dateFin, matricule) {
 		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"6\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"
 		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"REBL\", \"imputation\" :\"2014\", \"libelle\" :\"Récupération bilan ou crédit/débit \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"\" , \"typeAbsence\" : \"3\", \"JNT\" : \"0\"} ,"
 		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140310\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"2\", \"absCourt\" : \"CANN\", \"imputation\" :\"2014\", \"libelle\" :\"Congés annuels \", \"commentaire\" : \"\", \"nombreJours\" : \"2\", \"reste\" : \"2\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} ,"*/
-		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140307\", \"dateFin\" :\"20140311\", \"matinApremDeb\" :\"1\", \"matinApremFin\" :\"1\", \"absCourt\" : \"CAHS\", \"imputation\" :\"2014\", \"libelle\" :\"Jour de fractionnement pour congés annuels hors saison \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"1\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} "
+		+"{ \"insee\" : \"_______104\", \"dateDebut\" : \"20140307\", \"dateFin\" :\"20140313\", \"matinApremDeb\" :\"2\", \"matinApremFin\" :\"1\", \"absCourt\" : \"CAHS\", \"imputation\" :\"2014\", \"libelle\" :\"Jour de fractionnement pour congés annuels hors saison \", \"commentaire\" : \"\", \"nombreJours\" : \"1\", \"reste\" : \"1\", \"typeAbsence\" : \"1\", \"JNT\" : \"1\"} "
 		+"]"
 		+"}";
 
@@ -238,9 +238,9 @@ function infoAgentCourant (matricule, date) {
  * parametre : un objet de type Date à la date du lundi
  * retour : un objet de type date à la date du vendredi de la semaine correspondante
  */
-function getFriday(_dLundi) {
+function getFriday(_dLundi) { //TODO : probleme
 	var dateVendrediDble = new Date();
-	var dateVendredi = clone(_dLundi);
+	var dateVendredi = owl.deepCopy(_dLundi);
 	dateVendrediDble.setTime(Date.parse(dateVendredi));
 	var toAdd = 86400000*4; // 4 jours en milisecondes
 	dateVendrediDble.setTime(dateVendrediDble.getTime()+toAdd);
@@ -321,29 +321,6 @@ function getDate(dStr) {
 	d.setHours(0, 0, 0, 0);
 	
 	return d;
-}
-
-/*
- * Fonction de clonage
- * @author Keith Devens
- * @see http://keithdevens.com/weblog/archive/2007/Jun/07/javascript.clone
- */
-function clone(srcInstance)
-{
-	/*Si l'instance source n'est pas un objet ou qu'elle ne vaut rien c'est une feuille donc on la retourne*/
-	if(typeof(srcInstance) != 'object' || srcInstance == null)
-	{
-		return srcInstance;
-	}
-	/*On appel le constructeur de l'instance source pour crée une nouvelle instance de la même classe*/
-	var newInstance = srcInstance.constructor();
-	/*On parcourt les propriétés de l'objet et on les recopies dans la nouvelle instance*/
-	for(var i in srcInstance)
-	{
-		newInstance[i] = clone(srcInstance[i]);
-	}
-	/*On retourne la nouvelle instance*/
-	return newInstance;
 }
 
 

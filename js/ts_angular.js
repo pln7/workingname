@@ -3,8 +3,6 @@
  * 
  */
 
-
-
 /*
  * controleur angular du tableau de service
  */
@@ -12,11 +10,10 @@ function tsCtrl($scope) {
 
 
 	$scope.dateLundi = getMonday(new Date());
-
 	/*
 	 * fonction d'initialisation du tableau de service à une semaine donnée
 	 */
-	$scope.initTs = function(dateLundi) {
+	$scope.initTs = function() {
 
 		$scope.agents = new Array(); // on initialise la liste des agents
 
@@ -220,7 +217,7 @@ function tsCtrl($scope) {
 		            	  vacDureeInfoC : 'null'
 		              },
 		              {
-		            	 absAbsCourt : 'null',
+		            	  absAbsCourt : 'null',
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
@@ -248,7 +245,7 @@ function tsCtrl($scope) {
 		            	  vacDureeInfoC : 'null'
 		              },
 		              {
-		            	 absAbsCourt : 'null',
+		            	  absAbsCourt : 'null',
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
@@ -398,19 +395,20 @@ function tsCtrl($scope) {
 					if (dateFin <= dateVendrediStr) { // fin en milieu de semaine
 						ecart2 = diffdate(getDate(dateFin), getDate(dateVendrediStr));
 						ecart1 = diffdate(getDate(dateDeb), getDate(dateLundiStr));
+						
 						for (i=ecart1; i<(5-ecart2); i++) {
 							if ((i == 4-ecart2) && (absences[abs]["matinApremFin"] == 1)) {
 								tempTS[i]["matin"] = 'abs';
 								//récupération des infos de l'absence
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 							} else if((i == ecart1) && (absences[abs]["matinApremDeb"] == 2)) {
 								tempTS[i]["aprem"] = 'abs';
 								//récupération des infos de l'absence
 								tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 							}
@@ -420,12 +418,12 @@ function tsCtrl($scope) {
 
 								//récupération des infos de l'absence
 								tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 							}
@@ -440,7 +438,7 @@ function tsCtrl($scope) {
 
 								//récupération des infos de l'absence
 								tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 							} else {
@@ -449,12 +447,12 @@ function tsCtrl($scope) {
 
 								//récupération des infos de l'absence
 								tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 							}
@@ -471,7 +469,7 @@ function tsCtrl($scope) {
 
 								//récupération des infos de l'absence
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 							} else {
@@ -480,12 +478,12 @@ function tsCtrl($scope) {
 
 								//récupération des infos de l'absence
 								tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-								tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 							}
@@ -499,12 +497,12 @@ function tsCtrl($scope) {
 
 							//récupération des infos de l'absence
 							tempInfos[(2*i+1)]["absAbsCourt"] = absences[abs]["absCourt"];
-							tempInfos[(2*i+1)]["absImputation"] = absences[abs]["Imputation"];
+							tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 							tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 							tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
 
 							tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
-							tempInfos[(2*i)]["absImputation"] = absences[abs]["Imputation"];
+							tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 							tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 							tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
 						}
@@ -550,6 +548,8 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
+								
 							} else if((i == ecart1) && (hhdeb >= "12:00")) {
 								tempTS[i]["aprem"] = 'vac';
 								// récupération des infos de la vacation
@@ -574,6 +574,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
 							}
 							else {
 								tempTS[i]["matin"] = 'vac';
@@ -600,6 +601,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
 
 								tempInfos[(2*i)]["vacVacCourt"] = vacations[vac]["vacCourt"];
 								tempInfos[(2*i)]["vacModifiable"] = vacations[vac]["modifiable"];
@@ -622,6 +624,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
 							}
 						}
 					}
@@ -653,6 +656,8 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
+
 							} else {
 								tempTS[i]["matin"] = 'vac';
 								tempTS[i]["aprem"] = 'vac';
@@ -678,6 +683,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
 
 								tempInfos[(2*i)]["vacVacCourt"] = vacations[vac]["vacCourt"];
 								tempInfos[(2*i)]["vacModifiable"] = vacations[vac]["modifiable"];
@@ -700,6 +706,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
 							}
 						}
 					}
@@ -733,6 +740,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
 							} else {
 								tempTS[i]["matin"] = 'vac';
 								tempTS[i]["aprem"] = 'vac';
@@ -758,6 +766,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
 
 								tempInfos[(2*i)]["vacVacCourt"] = vacations[vac]["vacCourt"];
 								tempInfos[(2*i)]["vacModifiable"] = vacations[vac]["modifiable"];
@@ -780,6 +789,7 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 								tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 								tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+								tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
 							}
 						}
 					}
@@ -810,6 +820,7 @@ function tsCtrl($scope) {
 							tempInfos[(2*i+1)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 							tempInfos[(2*i+1)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 							tempInfos[(2*i+1)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+							tempInfos[(2*i+1)]["vacCommentaire"] = vacations[vac]["commvac"];
 
 							tempInfos[(2*i)]["vacVacCourt"] = vacations[vac]["vacCourt"];
 							tempInfos[(2*i)]["vacModifiable"] = vacations[vac]["modifiable"];
@@ -832,13 +843,12 @@ function tsCtrl($scope) {
 							tempInfos[(2*i)]["vacDureeInfoA"] = vacations[vac]["dureeInfoA"];
 							tempInfos[(2*i)]["vacDureeInfoB"] = vacations[vac]["dureeInfoB"];
 							tempInfos[(2*i)]["vacDureeInfoC"] = vacations[vac]["dureeInfoC"];
+							tempInfos[(2*i)]["vacCommentaire"] = vacations[vac]["commvac"];
 						}
 					}
 				}
 			}
 		}
-		var a = $scope.agents;
-		alert(getObjectProperties(a["0"]["infos"]["0"]));
 	};
 	
 
@@ -852,8 +862,10 @@ function tsCtrl($scope) {
 		initTs($scope.dateLundi);
 	}
 
-	$scope.dblclick = function(jour,matin_ou_aprem) {
-		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem,'_blank');
+	$scope.dblclick = function(jour,matin_ou_aprem,index) {
+		
+		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem+'&pseudoAgent='+index,'_blank');
+		$scope.pseudoAgent = getNomAgent();
 		return false;
 	};
 
@@ -874,8 +886,60 @@ function tsCtrl($scope) {
 
 	$scope.listeGabVacation = $scope.getGabarits();
 
+	// fonction retournant le pseudo de l'agent visualisant/éditant sa vacaction/absence 
+	// utile pour la condition du ng-repeat
+	$scope.getPseudoAgent = function() {
+		var parameters = location.search.substring(1).split("&");
+	    var temp = parameters[0].split("=");
+	    temp = parameters[1].split("=");
+	    temp = parameters[2].split("=");
+	    pseudoAgent = unescape(temp[1]);
+	  	return pseudoAgent;
+	}
 
+	// Retourne le numéro de la journée : 0 pour le lundi matin, 9 pour pour le Vendredi après-midi
+	$scope.getNumJournee = function() {
+		var parameters = location.search.substring(1).split("&");
+	    var temp = parameters[0].split("=");
+	    jour = unescape(temp[1]);
+	    temp = parameters[1].split("=");
+	    matin_ou_aprem = unescape(temp[1]);
+		
+	    var numJournee = 0;
 
+	    
+
+	    if (jour=='Lundi') {
+	    	numJournee += 0;
+	    }
+	    else if (jour=='Mardi') {
+	    	numJournee += 2;
+	    }
+	    else if (jour=='Mercredi') {
+	    	numJournee += 4;
+	    }
+	    else if (jour=='Jeudi') {
+	    	numJournee += 6;
+	    }
+	    else if (jour=='Vendredi') {
+	    	numJournee += 8;
+	    } 
+	    else {
+	    	alert('Erreur dans getNumJournee')
+	    }
+	   
+	    if (matin_ou_aprem=="matin") {
+
+	    }
+	    else if (matin_ou_aprem=="apres-midi") {
+	  		numJournee += 1;
+	    }
+	   	else {
+	   		alert('Erreur dans getNumJournee ');
+	   	}
+
+	   	return numJournee;
+	}
 };
 
 

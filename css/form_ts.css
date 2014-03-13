@@ -3,7 +3,27 @@ body {
   padding-bottom: 40px;
 }
 
+textarea {
+	width:500px;
+}
 .fieldset_general{
 	margin-top :50px;
 	width : 800px;
 }
+
+.table{
+	margin-top :50px;
+}
+
+.invisible {
+	display : none;
+}
+
+.visible{
+
+}
+
+.alert-info{
+	text-align:center;
+}
+

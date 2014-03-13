@@ -13,15 +13,19 @@
 <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
 <style type="text/css"></style>
 <script type="text/javascript" src="chrome-extension://bfbmjmiodbnnpllbbbfblcplfjjepjdn/js/injected.js"></script>
-<script src="js/form_ts.js"></script>
 
 </head>
-<!-- absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule -->
-<body>
+
+<body ng-app ng-controller="tsCtrl">
+
+{{initTs()}}
 
 <script>	
-	ecrireJour();
+	ecrireInfos();
 </script>
+
+
+
 
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
@@ -33,18 +37,273 @@
 	</div>
 </div>
 
-<div class="content">
-	<div class="container">
-			<form action="" class="form-stacked">
-				<fieldset class="fieldset_general"> 
-					<legend> <strong> Formulaire d'édition/modification de vacations/absences ( à faire : les valeurs des champs du JSON associé sont stockées dans le tableau infos
-									  de ts_angular.js ) </strong> </legend>
-					<div class="clearfix">
-						<label> Exemple </label>	
-						<span class="input-xlarge uneditable-input"> {{infos.pseudo}} </span>		
-					</div>
-				</fieldset>
-			</form>
+
+<div class="container" style="margin-top:60px">
+		<!--
+		<div class="span9 span91">
+			<table class="table zebra-striped">
+				<tbody>
+					<tr ng-repeat="agent in agents">
+						<td title={{agent.name}} class="alignLeft">{{agent.pseudo}}</td>
+						<td ng-repeat="info in agent.infos">
+							{{info.absAbsCourt}}
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		-->
+	
+	<!-- On ne met que les infos relatives à l'agent dont la ligne du tableau de service a été selectionné -->
+	<div class="row-fluid" ng-repeat="agent in agents" ng-if="agent.pseudo==getPseudoAgent()">
+		
+		<div class="span2">
+			<fieldset>
+				<h3> Agent : </h3>
+				<strong>
+					<div id="pseudoAgent"></div>	
+				</strong>
+			</fieldset>
+		</div>
+	   
+		<div class="span8" style="margin-top:20px" ng-if="agent.infos[getNumJournee()].absAbsCourt!='null'">
+			<div class="alert alert-info" >
+				<strong>Absences</strong> 
+			</div>
+			
+			<div class="well">
+
+				<form action="#">
+				
+					<fieldset>
+						<div class="clearfix">
+							<label> Gabarit </label>
+							<div class="input uneditable-input">
+					         	{{agent.infos[getNumJournee()].absAbsCourt}}
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Année d'imputation</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].absImputation}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Libellé</label>
+								<div class="input-xxlarge uneditable-input">
+									{{agent.infos[getNumJournee()].absLibelle}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Commentaire</label>
+								<textarea rows="3" disabled>
+									{{agent.infos[getNumJournee()].absCommentaire}}
+								</textarea>
+							</div>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="row-fluid"  ng-repeat="agent in agents" ng-if="agent.pseudo==getPseudoAgent()">
+
+		<div class="span8 offset2" ng-if="agent.infos[getNumJournee()].vacVacCourt!='null'">
+			<div class="alert alert-info">
+				<strong>Vacations</strong> 
+			</div>
+			
+			<div class="well">
+				<form action="#">
+				
+					<fieldset>
+						<div class="clearfix">
+							<label> Gabarit </label>
+							<div class="input uneditable-input">
+					         	{{agent.infos[getNumJournee()].vacVacCourt}}
+					        </div>
+					    </div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Modifiable</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacModiiable}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Libellé</label>
+								<div class="input-xxlarge uneditable-input">
+									{{agent.infos[getNumJournee()].vacLibelle}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Exception	</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacExcept}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Salon</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacSalon}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>NAS</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacNAS}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Compensée</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacCompensee}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Mission</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacMission}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Bonifiée</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacBonifiee}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Badgée</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacBadgee}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Astreinte</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacAstreinte}}
+								</div>
+							</div>
+					</fieldset>
+					
+					<fieldset>
+							<div class="clearfix"><label>Heure de début</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vachhdeb}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de fin</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vachhfin}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de pose début</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vachhPauseDeb}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Heure de pose fin</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vachhPauseFin}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée effective</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeEffective}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée compensée</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeCompensee}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée de déplacement ( astreinte )</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeDeplacmtAst}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info A</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeInfoA}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info B</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeInfoB}}
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Durée info C</label>
+								<div class="input uneditable-input">
+									{{agent.infos[getNumJournee()].vacDureeInfoC}}
+								</div>
+							</div>
+					</fieldset>
+
+					
+					
+					<fieldset>
+							<div class="clearfix"><label>Commentaire</label>
+								<textarea rows="3" disabled>
+									{{agent.infos[getNumJournee()].vacCommentaire}}
+								</textarea>
+							</div>
+					</fieldset>
+
+				</form>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -53,7 +312,11 @@
 	<script src="bootstrap/js/jquery.js"></script>
 	<script src="bootstrap/js/bootstrap.js"></script>
 	<script src="lib/angular.js"></script>
-	<script src="js/ts.js"></script>
-
+	<script src="js/ts_angular.js"></script>
+	<script src="communication json/actions.js"></script>
+	<script src="communication json/json2Object.js"></script>
+	<script src="communication json/getObjectProperties.js"></script>
+	<script src="lib//copy.js"></script>
+	<script src="js/form_ts.js"></script>
 </body>
 </html>
