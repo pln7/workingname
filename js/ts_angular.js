@@ -52,11 +52,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	  absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -81,11 +86,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	  absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -105,71 +115,20 @@ function tsCtrl($scope) {
 		            	  vacDureeInfoC : 'null'
 		              },
 		              {
- 						absAbsCourt : 'null',
+ 						  absAbsCourt : 'null',
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	  absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
-		            	  vacCompensee : 'null',
-		            	  vacMission : 'null',
-		            	  vacBonifiee : 'null',
-		            	  vacBadgee : 'null',
-		            	  vacAstreinte : 'null',
-		            	  vacLibelle : 'null',
-		            	  vacCommentaire : 'null',
-		            	  vachhdeb : 'null',
-		            	  vachhfin : 'null',
-		            	  vachhPauseDeb : 'null',
-		            	  vachhPauseFin : 'null',
-		            	  vacDureeEffective : 'null',
-		            	  vacDureeCompensee : 'null',
-		            	  vacDureeDeplacmtAst : 'null',
-		            	  vacDureeInfoA : 'null',
-		            	  vacDureeInfoB : 'null',
-		            	  vacDureeInfoC : 'null'
-		              },
-		              {
-		            	  absAbsCourt : 'null',
-		            	  absImputation : 'null',
-		            	  absLibelle : 'null',
-		            	  absCommentaire : 'null',
-		            	  vacVacCourt : 'null',
-		            	  vacModifiable : 'null',
-		            	  vacExcept : 'null',
-		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
-		            	  vacCompensee : 'null',
-		            	  vacMission : 'null',
-		            	  vacBonifiee : 'null',
-		            	  vacBadgee : 'null',
-		            	  vacAstreinte : 'null',
-		            	  vacLibelle : 'null',
-		            	  vacCommentaire : 'null',
-		            	  vachhdeb : 'null',
-		            	  vachhfin : 'null',
-		            	  vachhPauseDeb : 'null',
-		            	  vachhPauseFin : 'null',
-		            	  vacDureeEffective : 'null',
-		            	  vacDureeCompensee : 'null',
-		            	  vacDureeDeplacmtAst : 'null',
-		            	  vacDureeInfoA : 'null',
-		            	  vacDureeInfoB : 'null',
-		            	  vacDureeInfoC : 'null'
-		              },
-		              {
-		            	  absAbsCourt : 'null',
-		            	  absImputation : 'null',
-		            	  absLibelle : 'null',
-		            	  absCommentaire : 'null',
-		            	  vacVacCourt : 'null',
-		            	  vacModifiable : 'null',
-		            	  vacExcept : 'null',
-		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -193,11 +152,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -221,11 +185,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -249,11 +218,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -277,11 +251,16 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -305,11 +284,82 @@ function tsCtrl($scope) {
 		            	  absImputation : 'null',
 		            	  absLibelle : 'null',
 		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
 		            	  vacVacCourt : 'null',
 		            	  vacModifiable : 'null',
 		            	  vacExcept : 'null',
 		            	  vacSalon : 'null',
-		            	  vacNAS : 'nul',
+		            	  vacNAS : 'null',
+		            	  vacCompensee : 'null',
+		            	  vacMission : 'null',
+		            	  vacBonifiee : 'null',
+		            	  vacBadgee : 'null',
+		            	  vacAstreinte : 'null',
+		            	  vacLibelle : 'null',
+		            	  vacCommentaire : 'null',
+		            	  vachhdeb : 'null',
+		            	  vachhfin : 'null',
+		            	  vachhPauseDeb : 'null',
+		            	  vachhPauseFin : 'null',
+		            	  vacDureeEffective : 'null',
+		            	  vacDureeCompensee : 'null',
+		            	  vacDureeDeplacmtAst : 'null',
+		            	  vacDureeInfoA : 'null',
+		            	  vacDureeInfoB : 'null',
+		            	  vacDureeInfoC : 'null'
+		              },
+		              {
+		            	  absAbsCourt : 'null',
+		            	  absImputation : 'null',
+		            	  absLibelle : 'null',
+		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
+		            	  vacVacCourt : 'null',
+		            	  vacModifiable : 'null',
+		            	  vacExcept : 'null',
+		            	  vacSalon : 'null',
+		            	  vacNAS : 'null',
+		            	  vacCompensee : 'null',
+		            	  vacMission : 'null',
+		            	  vacBonifiee : 'null',
+		            	  vacBadgee : 'null',
+		            	  vacAstreinte : 'null',
+		            	  vacLibelle : 'null',
+		            	  vacCommentaire : 'null',
+		            	  vachhdeb : 'null',
+		            	  vachhfin : 'null',
+		            	  vachhPauseDeb : 'null',
+		            	  vachhPauseFin : 'null',
+		            	  vacDureeEffective : 'null',
+		            	  vacDureeCompensee : 'null',
+		            	  vacDureeDeplacmtAst : 'null',
+		            	  vacDureeInfoA : 'null',
+		            	  vacDureeInfoB : 'null',
+		            	  vacDureeInfoC : 'null'
+		              },
+		              {
+		            	  absAbsCourt : 'null',
+		            	  absImputation : 'null',
+		            	  absLibelle : 'null',
+		            	  absCommentaire : 'null',
+		            	   absDateDebut : 'null',
+		            	  absDateFin : 'null',
+		            	  absMatinApremDeb : 'null',
+		            	  absMatinApremFin : 'null',
+		            	  absMatricule : 'null',
+		            	  vacVacCourt : 'null',
+		            	  vacModifiable : 'null',
+		            	  vacExcept : 'null',
+		            	  vacSalon : 'null',
+		            	  vacNAS : 'null',
 		            	  vacCompensee : 'null',
 		            	  vacMission : 'null',
 		            	  vacBonifiee : 'null',
@@ -404,6 +454,10 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							} else if((i == ecart1) && (absences[abs]["matinApremDeb"] == 2)) {
 								tempTS[i]["aprem"] = 'abs';
 								//récupération des infos de l'absence
@@ -411,6 +465,10 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							}
 							else {
 								tempTS[i]["matin"] = 'abs';
@@ -421,11 +479,19 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
 								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							}
 						}
 					}
@@ -441,6 +507,10 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							} else {
 								tempTS[i]["matin"] = 'abs';
 								tempTS[i]["aprem"] = 'abs';
@@ -450,11 +520,19 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
 								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							}
 						}
 					}
@@ -472,6 +550,10 @@ function tsCtrl($scope) {
 								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							} else {
 								tempTS[i]["matin"] = 'abs';
 								tempTS[i]["aprem"] = 'abs';
@@ -481,11 +563,19 @@ function tsCtrl($scope) {
 								tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 
 								tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
 								tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 								tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 								tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+								tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+								tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+								tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+								tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 							}
 						}
 					}
@@ -500,11 +590,19 @@ function tsCtrl($scope) {
 							tempInfos[(2*i+1)]["absImputation"] = absences[abs]["imputation"];
 							tempInfos[(2*i+1)]["absLibelle"] = absences[abs]["libelle"];
 							tempInfos[(2*i+1)]["absCommentaire"] = absences[abs]["commentaire"];
+							tempInfos[(2*i+1)]["absDateDebut"] = absences[abs]["dateDebut"];
+							tempInfos[(2*i+1)]["absDateFin"] = absences[abs]["dateFin"];
+							tempInfos[(2*i+1)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+							tempInfos[(2*i+1)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 
 							tempInfos[(2*i)]["absAbsCourt"] = absences[abs]["absCourt"];
 							tempInfos[(2*i)]["absImputation"] = absences[abs]["imputation"];
 							tempInfos[(2*i)]["absLibelle"] = absences[abs]["libelle"];
 							tempInfos[(2*i)]["absCommentaire"] = absences[abs]["commentaire"];
+							tempInfos[(2*i)]["absDateDebut"] = absences[abs]["dateDebut"];
+							tempInfos[(2*i)]["absDateFin"] = absences[abs]["dateFin"];
+							tempInfos[(2*i)]["absMatinApremDeb"] = absences[abs]["matinApremDeb"];
+							tempInfos[(2*i)]["absMatinApremFin"] = absences[abs]["matinApremFin"];
 						}
 					}
 				}
@@ -878,11 +976,23 @@ function tsCtrl($scope) {
 		return false;
 	};
 
+	// double clic sur une case du tableau
 	$scope.dblclick = function(jour,matin_ou_aprem,pseudo) {
 		
 		window.open('form_ts.html?jour='+jour+'&matin_ou_aprem='+matin_ou_aprem+'&pseudoAgent='+pseudo,'_blank');
 		return false;
 	};
+
+	// ajouter absence : TODO
+	$scope.clickAjoutAbsence = function() {
+		alert('clickAjoutAbsence');
+	}
+
+	// ajouter vacation : TODO
+	$scope.clickAjoutVacation = function() {
+		alert('clickAjoutVacation');
+	}
+
 
 	//récupération des gabarits de vacations du serveur
 	$scope.getGabarits = function() {

@@ -67,33 +67,6 @@
 			<div class="well">
 
 				<form>
-					
-					<fieldset>
-						<div class="clearfix">
-							<label> Journée </label>
-							<div class="input">
-					         	  <select name="journeeAbs">
-						              <option value="lundi">Lundi</option>
-						              <option value="mardi">Mardi</option>
-						              <option value="mercredi">Mercredi</option>
-						              <option value="jeudi">Jeudi</option>
-						              <option value="vendredi">Vendredi</option>
-					            </select> 
-					        </div>
-					    </div>
-					</fieldset>
-
-					<fieldset>
-						<div class="clearfix">
-							<label> Matinée/Après-midi </label>
-							<div class="input">
-					         	  <select name="matin_ou_apremAbs">
-						              <option value="matin">Matin</option>
-						              <option value="aprem">Après-midi</option>
-					            </select> 
-					        </div>
-					    </div>
-					</fieldset>
 
 					<fieldset>
 						<div class="clearfix">
@@ -114,30 +87,47 @@
 					<fieldset>
 							<div class="clearfix"><label>Année d'imputation</label>
 								<div class="input">
-									<input type="text" placeholder="jj/mm/aaaa"/>
+									<input type="text" placeholder="aaaa"/>
 								</div>
 							</div>
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Libellé</label>
-								<div class="input-xxlarge">
-									<input type="text" placeholder="Libellé"/>
+							<div class="clearfix"><label>Date de début</label>
+								<div class="input">
+									<input type="text" placeholder="aaaammjj"/>
 								</div>
 							</div>
 					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Commentaire</label>
-								<textarea rows="3">
 
-								</textarea>
+					<fieldset>
+							<div class="clearfix"><label>Date de fin</label>
+								<div class="input">
+									<input type="text" placeholder="aaaammjj"/>
+								</div>
 							</div>
 					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Début ( 1 pour matin ou 2 pour après-midi )</label>
+								<div class="input">
+									<input type="text" placeholder="1 ou 2"/>
+								</div>
+							</div>
+					</fieldset>
+
+					<fieldset>
+							<div class="clearfix"><label>Fin ( 1 pour matin ou 2 pour après-midi )</label>
+								<div class="input">
+									<input type="text" placeholder="1 ou 2"/>
+								</div>
+							</div>
+					</fieldset>
+
 
 					<fieldset>
 				    	<legend> </legend>
-				    	<button class="btn btn-info">Confirmer</button>
+				    	<button class="btn btn-info" ng-click="clickAjoutAbsence()">Confirmer</button>
 					</fieldset>
 
 				</form>
@@ -153,43 +143,16 @@
 			
 			<div class="well">
 				<form>
-
-					<fieldset>
-						<div class="clearfix">
-							<label> Journée </label>
-							<div class="input">
-					         	  <select name="journeeVac">
-						              <option value="lundi">Lundi</option>
-						              <option value="mardi">Mardi</option>
-						              <option value="mercredi">Mercredi</option>
-						              <option value="jeudi">Jeudi</option>
-						              <option value="vendredi">Vendredi</option>
-					            </select> 
-					        </div>
-					    </div>
-					</fieldset>
-
-					<fieldset>
-						<div class="clearfix">
-							<label> Matinée/Après-midi </label>
-							<div class="input">
-					         	  <select name="matin_ou_apremVac">
-						              <option value="matin">Matin</option>
-						              <option value="aprem">Après-midi</option>
-					            </select> 
-					        </div>
-					    </div>
-					</fieldset>
 				
 					<fieldset>
 						<div class="clearfix">
 							<label> Gabarit </label>
 							<div class="input">
-					         	<select name="gabarit_vac">
+					         	  <select name="gabaritAbs">
 						              <option value="hb5j">HB5j</option>
 						              <option value="hb6a">HB6a</option>
 						              <option value="hb4j">HB4j</option>
-						              <option value="hb5m">HB5m</option>
+						              <option value="hb5m">hb5m</option>
 						              <option value="e100">E100</option>
 					            </select> 
 					        </div>
@@ -197,199 +160,49 @@
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Modifiable</label>
+							<div class="clearfix"><label>Année d'imputation</label>
 								<div class="input">
-									<input type="text" placeholder="0 ou 1"/>
+									<input type="text" placeholder="aaaa"/>
 								</div>
 							</div>
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Libellé</label>
-								<div class="input-xxlarge">
-									<input type="text" placeholder="Libellé"/>
+							<div class="clearfix"><label>Date de début</label>
+								<div class="input">
+									<input type="text" placeholder="aaaammjj"/>
 								</div>
 							</div>
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Exception</label>
+							<div class="clearfix"><label>Date de fin</label>
 								<div class="input">
-									<select name="exception">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Salon</label>
-								<div class="input">
-									<select name="salon">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>NAS</label>
-								<div class="input">
-									<select name="nas">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Compensée</label>
-								<div class="input">
-									<select name="compensee">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Mission</label>
-								<div class="input">
-									<select name="mission">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Bonifiée</label>
-								<div class="input">
-									<select name="bonifiee">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Badgée</label>
-								<div class="input">
-									<select name="badgee">
-						              <option value="Oui">Oui</option>
-						              <option value="Non">Non</option>
-						            </select>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Astreinte</label>
-								<div class="input">
-									<input type="text"/>
-								</div>
-							</div>
-					</fieldset>
-					
-					<fieldset>
-							<div class="clearfix"><label>Heure de début</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+									<input type="text" placeholder="aaaammjj"/>
 								</div>
 							</div>
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Heure de fin</label>
+							<div class="clearfix"><label>Début ( 1 pour matin ou 2 pour après-midi )</label>
 								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+									<input type="text" placeholder="1 ou 2"/>
 								</div>
 							</div>
 					</fieldset>
 
 					<fieldset>
-							<div class="clearfix"><label>Heure de pose début</label>
+							<div class="clearfix"><label>Fin ( 1 pour matin ou 2 pour après-midi )</label>
 								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
+									<input type="text" placeholder="1 ou 2"/>
 								</div>
 							</div>
 					</fieldset>
 
-					<fieldset>
-							<div class="clearfix"><label>Heure de pose fin</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée effective</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée compensée</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée de déplacement ( astreinte )</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée info A</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée info B</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					<fieldset>
-							<div class="clearfix"><label>Durée info C</label>
-								<div class="input">
-									<input type="text" placeholder="hh:mm ( ou 0 )"/>
-								</div>
-							</div>
-					</fieldset>
-
-					
-					
-					<fieldset>
-							<div class="clearfix"><label>Commentaire</label>
-								<textarea rows="3">
-
-								</textarea>
-							</div>
-					</fieldset>
 
 					<fieldset>
 				    	<legend> </legend>
-				    	<button class="btn btn-info">Confirmer</button>
+				    	<button class="btn btn-info" ng-click="clickAjoutVacation()">Confirmer</button>
 					</fieldset>
 
 				</form>
