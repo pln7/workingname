@@ -984,13 +984,14 @@ function tsCtrl($scope) {
 	};
 
 	// ajouter absence : TODO
-	$scope.clickAjoutAbsence = function() {
-		alert('clickAjoutAbsence');
+	$scope.clickAjoutAbsence = function(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule) {
+		alert('Necessite integration');
+		// poserAbsence(absCourt, imputation, dateDebut, dateFin, matinApremDeb, matinApremFin, matricule);
 	}
 
 	// ajouter vacation : TODO
 	$scope.clickAjoutVacation = function() {
-		alert('clickAjoutVacation');
+		alert('Necessite integration');
 	}
 
 
